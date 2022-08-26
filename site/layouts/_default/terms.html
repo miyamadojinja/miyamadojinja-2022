@@ -1,0 +1,30 @@
+{{ define "main" }}
+
+{{/*
+  Example URL: /tags/
+*/}}
+
+<section class="hero">
+  <div class="hero-body">
+    <p class="title">{{.Title}}</p>
+  </div>
+</section>
+<main class="container my-5 px-4">
+  <div class="content">{{ .Content }}</div>
+  {{ range $key, $value := .Data.Terms }}
+    <a href="{{ "/" | relLangURL }}{{ $.Data.Plural | urlize }}/{{ $key | urlize }}">
+      <h2 class="title is-4 mb-4">{{ $.Data.Singular | humanize }}: {{ $key }}</h2>
+    </a>
+    <ul class="mb-4">
+      {{ range $value.Pages }}
+        <li class="card mb-2">
+          <div class="card-content">
+            <a href="{{ .Permalink }}" class="title is-6">{{ .Title }}</a>
+          </div>
+        </li>
+      {{ end }}
+    </ul>
+  {{ end }}
+</main>
+
+{{ end }}

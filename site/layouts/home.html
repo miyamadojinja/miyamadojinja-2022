@@ -1,0 +1,28 @@
+{{ define "main" }}
+
+<header class="hero introduction">
+  <img src="{{ .Params.MainImage }}" alt="">
+  <div class="hero-body">
+    <div>{{ .Params.Introduction | markdownify }}</div>
+  </div>
+</header>
+<main class="container px-4 mb-6">
+  <section class="section content">
+    {{ .Content }}
+  </section>
+  <section class="section px-0">
+    {{ partial "home/saijin.html" . }}
+  </section>
+  <section class="section px-0">
+    {{ partial "home/features.html" . }}
+  </section>
+  <section class="section px-0">
+    {{ partial "home/keidai.html" . }}
+  </section>
+  </section>
+  <section class="section px-0">
+    {{ partial "home/access.html" . }}
+  </section>
+</main>
+
+{{ end }}

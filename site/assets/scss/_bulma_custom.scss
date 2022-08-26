@@ -1,0 +1,43 @@
+// https://bulma.io/documentation/customize/with-node-sass/
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500&display=swap');
+
+// Import only what you need from Bulma
+// https://github.com/jgthms/bulma/tree/master/sass
+@import '../../node_modules/bulma/sass/utilities/_all';
+
+// Override Bulma variables
+$family-primary: 'noto serif jp', sans-serif;
+$text: $black-ter;
+
+$navbar-breakpoint: $tablet;
+$navbar-height: 5rem;
+$navbar-item-hover-background-color: transparent;
+
+@import '../../node_modules/bulma/sass/base/_all';
+@import '../../node_modules/bulma/sass/elements/_all';
+@import '../../node_modules/bulma/sass/form/_all';
+@import '../../node_modules/bulma/sass/components/_all';
+@import '../../node_modules/bulma/sass/grid/_all';
+@import '../../node_modules/bulma/sass/helpers/_all';
+@import '../../node_modules/bulma/sass/layout/_all';
+
+// to make the cards have equal height
+.card {
+  height: 100%;
+}
+
+// to set the default hero background color
+.hero {
+  background-color: $white-ter;
+}
+
+// to adjust the size of navbar logo image
+.navbar-brand img {
+  max-height: 4rem !important;
+}
+
+// to make the image height consistent in the user-determined content
+.content img {
+  max-height: 24rem !important;
+}

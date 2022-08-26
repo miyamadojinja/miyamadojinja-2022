@@ -1,0 +1,29 @@
+{{ define "main" }}
+
+<section class="hero">
+  <div class="hero-body">
+    <p class="title">{{.Title}}</p>
+  </div>
+</section>
+<main class="container my-5 px-4">
+  <div class="content">{{ .Content }}</div>
+  <div>
+    {{ range .Paginator.Pages.ByPublishDate.Reverse }}
+    <a href="{{ .RelPermalink }}">
+      <article class="card mb-4">
+        <div class="card-content">
+          <div class="media">
+            <div class="media-content">
+              <p class="title is-4">{{ .Title }}</p>
+            </div>
+          </div>
+          <div class="content">{{ .Summary }}</div>
+        </div>
+      </article>
+    </a>
+    {{ end }}
+  </div>
+  {{- template "_internal/pagination.html" . -}}
+</main>
+
+{{ end }}

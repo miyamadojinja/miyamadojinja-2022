@@ -1,0 +1,10 @@
+#!/bin/bash
+
+echo "===> Checking if hugo is installed"
+hugo version
+
+echo "===> Checking if nodejs is installed"
+node --version
+
+echo "===> Checking if npm is installed"
+npm --version

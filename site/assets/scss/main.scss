@@ -1,0 +1,13 @@
+@charset "utf-8";
+
+@import 'bulma_custom';
+
+body {
+  min-height: 50vh;
+  line-height: 1.75;
+}
+
+// to style the intro section
+.introduction {
+  font-size: 1.4rem;
+}
