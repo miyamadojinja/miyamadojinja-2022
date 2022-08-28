@@ -39,5 +39,10 @@ $navbar-item-hover-background-color: transparent;
 
 // to make the image height consistent in the user-determined content
 .content img {
-  max-height: 24rem !important;
+  width: 100%;
+  height: auto;
+  @include tablet {
+    width: auto;
+    max-height: 24rem;
+  }
 }
