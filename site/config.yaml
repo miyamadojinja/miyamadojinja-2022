@@ -1,6 +1,6 @@
 # https://gohugo.io/getting-started/configuration/#all-configuration-settings
 baseURL: '/'
-languageCode: 'en-us'
+languageCode: 'ja'
 title: '海山道神社'
 Copyright: 'Miyamadojinja'
 
@@ -15,22 +15,33 @@ params:
   facebookUrl: https://www.facebook.com/%E6%B5%B7%E5%B1%B1%E9%81%93%E7%A5%9E%E7%A4%BE-137077743078473
   instagramUrl: https://www.instagram.com/miyamado_shrine
   description: |
-    Amet adipisicing labore aliqua cupidatat nisi ut velit. Laboris est esse
-    labore in veniam aliquip elit aliquip. Aute eiusmod magna occaecat esse aliqua.
+    開運・厄除け・結び・合格の神様
 
 # https://gohugo.io/content-management/menus
 menu:
   main:
-    - name: 'Docs 1'
-      url: '#'
+    - name: '狐の嫁入り神事'
+      url: '/yomeiri'
       weight: 1
-    - name: 'Docs 2 '
-      url: '#'
-      weight: 1
-    - name: 'Docs 3'
-      url: '#'
-      weight: 1
+    - name: '御祈祷・出張祭典'
+      url: '/gokito'
+      weight: 2
+    - name: '結婚式'
+      url: '/kyoshiki'
+      weight: 3
+    - name: '授与品'
+      url: '/juyohin'
+      weight: 4
+    - name: '行事'
+      url: '/events'
+      weight: 5
 
 # https://gohugo.io/content-management/taxonomies/
 taxonomies:
   tag: tags
+
+# https://gohugo.io/news/0.60.0-relnotes/
+markup:
+  goldmark:
+    renderer:
+      unsafe: true

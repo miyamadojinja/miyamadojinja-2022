@@ -11,3 +11,9 @@ body {
 .introduction {
   font-size: 1.4rem;
 }
+
+.hero--page-header * {
+  // https://bulma.io/documentation/overview/colors
+  background-color: $grey-darker;
+  color: $white-ter;
+}

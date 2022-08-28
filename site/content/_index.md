@@ -37,17 +37,18 @@ features:
     image: 'img/tenjinzo.jpg'
     linkUrl: 'tenjinzo'
     description: |
-      日本一の大きさ
+      杉の一木造りで日本一の大きさの菅原道真公のご神像を奉安しています。
+      天神様は学業・進学・合格・諸芸上達・呆け封じにご利益がございます。
   - name: '狐の嫁入り神事'
     image: 'img/setsubun-101.jpg'
     linkUrl: 'yomeiri'
     description: |
-      節分の日
+      節分の日は多くの参拝者で境内は非常に賑わいます。
   - name: '祭礼市（朔日市場）'
     image: 'img/saireiichi-3073.jpg'
     linkUrl: 'saireiichi'
     description: |
-      毎月1日
+      旬の農作物をはじめ、ヘルシー食材・珍品・榊や生花などいろいろなものをかなりお値打ちで皆さまに提供しています。
 
 keidaiImage: '/img/keidai.png'
 
