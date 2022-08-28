@@ -1,24 +1,27 @@
-<footer class="footer">
-
-  <div class="columns">
-    <div class="column">
-      <img src='{{ relURL .Site.Params.LogoImage }}' style="max-height: 80px">
-    </div>
-    <div class="column">
-      <address role="list">
-        <div role="listitem" class="has-text-grey-dark">
-          鎮座地: <a href="{{ .Site.Params.OfficeMapUrl }}">{{ .Site.Params.OfficeAddress }}</a>
-        </div>
-        <div role="listitem" class="has-text-grey-dark">
-          電話: <a href="tel:{{ .Site.Params.OfficePhone }}">{{ .Site.Params.OfficePhone }}</a>
-        </div>
-        <div role="listitem" class="has-text-grey-dark">
-          Email: <a href="mailto:{{ .Site.Params.OfficeEmail }}">{{ .Site.Params.OfficeEmail }}</a>
-        </div>
-      </address>
-    </div>
+<div class="hero has-background-info-light has-text-centered">
+  <div class="hero-body">
+    <div class="title is-4">ご祈祷・出張祭典 その他 お問い合わせは海山道神社社務所まで</div>
+    <address role="list">
+      <div role="listitem">
+        <a href="{{ .Site.Params.OfficeMapUrl }}">{{ .Site.Params.OfficeAddress }}</a>
+      </div>
+      <div role="listitem">
+        TEL: <a href="tel:{{ .Site.Params.OfficePhone }}">{{ .Site.Params.OfficePhone }}</a>
+        &middot;
+        EMAIL: <a href="mailto:{{ .Site.Params.OfficeEmail }}">{{ .Site.Params.OfficeEmail }}</a>
+      </div>
+    </address>
   </div>
-
+</div>
+<footer class="footer has-text-centered">
+  <div class="mb-4">
+    <img src='{{ relURL .Site.Params.LogoImage }}' style="max-height: 80px">
+  </div>
+  <div class="mb-4">
+    <a class="button is-ghost" href="{{.Site.Params.TwitterUrl}}"><img src="/img/twitter.svg" width="40em"></a>
+    <a class="button is-ghost" href="{{.Site.Params.FacebookUrl}}"><img src="/img/facebook.svg" width="40em"></a>
+    <a class="button is-ghost" href="{{.Site.Params.InstagramUrl}}"><img src="/img/instagram.svg" width="40em"></a>
+  </div>
   <div class="has-text-grey-dark">
     &copy; {{ with .Site.Copyright | default .Site.Title }}{{ . | safeHTML }} {{ now.Format "2006"}}{{ end }}
   </div>
