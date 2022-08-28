@@ -25,6 +25,7 @@ $navbar-item-hover-background-color: transparent;
 // to make the cards have equal height
 .card {
   height: 100%;
+  min-width: 12rem;
 }
 
 // to set the default hero background color
