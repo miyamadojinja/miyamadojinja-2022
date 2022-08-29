@@ -1,5 +1,12 @@
 {{ define "main" }}
 
+{{ if .Params.News }}
+<div class="notification is-info is-light ">
+  <div class="content">
+    {{ .Params.News | markdownify }}
+  </div>
+</div>
+{{ end }}
 <header class="hero introduction">
   <img src="{{ .Params.MainImage }}">
   <div class="hero-body">
