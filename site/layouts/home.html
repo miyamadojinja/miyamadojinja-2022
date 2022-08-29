@@ -21,6 +21,9 @@
       {{ .Content }}
     </span>
   </section>
+
+  <a class="button is-info is-light" href="/yakudoshi">今年の厄年の方は・・・</a>
+
   <section class="section px-0 saijin">
     {{ partial "card-columns" .Params.Saijin }}
   </section>
@@ -39,7 +42,8 @@
     <div class="content">
       {{ .Params.access1 | markdownify }}
     </div>
-    <iframe class="mb-5" src="{{ .Params.accessGoogleMapIframeUrl }}" width="100%" height="450" frameborder="0"></iframe>
+    <iframe class="mb-5" src="{{ .Params.accessGoogleMapIframeUrl }}" width="100%" height="450"
+      frameborder="0"></iframe>
     <div class="content">
       {{ .Params.access2 | markdownify }}
     </div>
