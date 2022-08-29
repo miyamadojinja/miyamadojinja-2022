@@ -1,13 +1,10 @@
 // https://bulma.io/documentation/customize/with-node-sass/
 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500&display=swap');
-
 // Import only what you need from Bulma
 // https://github.com/jgthms/bulma/tree/master/sass
 @import '../../node_modules/bulma/sass/utilities/_all';
 
 // Override Bulma variables
-$family-primary: 'noto serif jp', sans-serif;
 $text: $black-ter;
 
 $navbar-breakpoint: $tablet;

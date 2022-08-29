@@ -35,4 +35,12 @@
     {{ $script := resources.Get "js/main.js" | js.Build | minify | fingerprint }}
     <script src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity }}"></script>
   {{ end }}
+
+  {{/*
+    Netlify CMS
+    - https://www.netlifycms.org/docs/add-to-your-site/#add-the-netlify-identity-widget
+  */}}
+  {{ if .IsHome }}
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  {{ end }}
 </head>

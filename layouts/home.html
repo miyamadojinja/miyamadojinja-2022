@@ -1,7 +1,7 @@
 {{ define "main" }}
 
 {{ if .Params.News }}
-<div class="notification is-info is-light ">
+<div class="notification is-info is-light" >
   <div class="content">
     {{ .Params.News | markdownify }}
   </div>
@@ -48,6 +48,22 @@
       {{ .Params.access2 | markdownify }}
     </div>
   </section>
+
+  {{/*
+    Netlify CMS
+    - https://www.netlifycms.org/docs/add-to-your-site/#add-the-netlify-identity-widget
+  */}}
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
 </main>
 
 {{ end }}

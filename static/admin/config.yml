@@ -1,0 +1,84 @@
+# How to set up Netlify CMS for Hugo: https://www.netlifycms.org/docs/hugo
+# Available options: https://www.netlifycms.org/docs/configuration-options
+# Example: https://github.com/netlify/netlify-cms/blob/master/dev-test/config.yml
+backend:
+  name: git-gateway
+  # git Gateway Error: Please ask your site administrator to reissue the Git Gateway token
+  # https://community.netlify.com/t/git-gateway-error/12220/8
+  repo: mnishiguchi/miyamadojinja-website
+  branch: main
+  commit_messages:
+    create: 'Create {{collection}} "{{slug}}"'
+    update: 'Update {{collection}} "{{slug}}"'
+    delete: 'Delete {{collection}} "{{slug}}"'
+    uploadMedia: '[skip ci] Upload "{{path}}"'
+    deleteMedia: '[skip ci] Delete "{{path}}"'
+
+# https://www.netlifycms.org/docs/beta-features/#working-with-a-local-git-repository
+local_backend: true
+
+media_folder: content/img
+
+public_folder: /img
+
+site_url: https://miyamadojinja-2022.netlify.app
+
+logo_url: https://user-images.githubusercontent.com/7563926/187314099-ad31bb3e-364d-47c2-a8cc-dce45cf42b7e.svg
+
+locale: 'ja'
+
+show_preview_links: false
+
+collections:
+  - name: 'pages'
+    label: 'ページ'
+    editor:
+      preview: false
+    files:
+      - file: 'content/_index.md'
+        label: 'ホーム'
+        name: 'home'
+        fields:
+          - label: 'お知らせ'
+            name: 'news'
+            widget: 'markdown'
+          - label: 'イントロ写真'
+            name: 'mainImage'
+            widget: 'image'
+          - label: 'イントロ'
+            name: 'introduction'
+            widget: 'markdown'
+          - label: '本文'
+            name: 'body'
+            widget: 'markdown'
+          - label: '御祭神'
+            name: 'saijin'
+            widget: 'list'
+            fields:
+              - { label: '名称', name: 'name', widget: 'string' }
+              - { label: '説明', name: 'description', widget: 'markdown' }
+              - { label: '写真', name: 'image', widget: 'image' }
+              - { label: 'リンクURL', name: 'linkUrl', widget: 'string' }
+          - label: '特記事項'
+            name: features
+            widget: list
+            fields:
+              - { label: '名称', name: 'name', widget: 'text' }
+              - { label: '説明', name: 'description', widget: 'markdown' }
+              - { label: '写真', name: 'image', widget: 'image' }
+              - { label: 'リンクURL', name: 'linkUrl', widget: 'text' }
+          - label: '境内写真'
+            name: 'keidaiImage'
+            widget: 'image'
+          - label: '境内説明'
+            name: 'keidaiDescription'
+            widget: 'markdown'
+          - label: 'アクセス1'
+            name: 'access1'
+            widget: 'markdown'
+          - label: 'Google Map Iframe URL'
+            name: 'accessGoogleMapIframeUrl'
+            widget: 'text'
+          - label: 'アクセス2'
+            name: 'access2'
+            widget: 'markdown'

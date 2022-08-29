@@ -1,6 +1,6 @@
 ---
 # The content of the Homepage.
-mainImage: 'img/honden-0006.jpg'
+mainImage: '/img/honden-0006.jpg'
 
 introduction:
   海山道開運稲荷さまは海でも山でも道をきり開いて開運を運んで下さる尊いお稲荷さまということで、お金やお客様を運べば商売繁盛、車や船を運んで交通安全・海上安全・旅行安全、筆を運んで受験合格・就職出世成功、その他縁結、子授、安産、病気平癒、借金取り等道を切り開いて都合よくお運びいただく開運諸願成就のあしどめ稲荷さまです。
@@ -15,7 +15,7 @@ news: |
 
 saijin:
   - name: '洲崎濱宮神明神社 御祭神'
-    image: 'img/shinmeisha.jpg'
+    image: '/img/shinmeisha.jpg'
     linkUrl: 'https://ja.wikipedia.org/wiki/%E6%B4%B2%E5%B4%8E%E6%BF%B1%E5%AE%AE%E7%A5%9E%E6%98%8E%E7%A5%9E%E7%A4%BE'
     description: |
       - 面足命
@@ -31,7 +31,7 @@ saijin:
       - 保食神
       - 倭姫命
   - name: '海山道開運稲荷神社 御祭神'
-    image: 'img/torii-2875-1.jpg'
+    image: '/img/torii-2875-1.jpg'
     linkUrl:
     description: |
       - 倉稲魂神（うがのみたま）
@@ -42,19 +42,19 @@ saijin:
 
 features:
   - name: '海山道天神菅原社'
-    image: 'img/tenjinzo.jpg'
+    image: '/img/tenjinzo.jpg'
     linkUrl: 'tenjinzo'
     description: |
       杉の一木造りで日本一の大きさの菅原道真公のご神像を奉安しています。
       天神様は学業・進学・合格・諸芸上達・呆け封じにご利益がございます。
   - name: '狐の嫁入り神事'
-    image: 'img/setsubun-101.jpg'
+    image: '/img/setsubun-101.jpg'
     linkUrl: 'yomeiri'
     description: |
       節分の日は多くの参拝者で境内は非常に賑わいます。
       この神事は毎年節分の日におこなわれ、『追儺の鬼はらい』として当神社に古くから伝わる厄祓行事です。
   - name: '朔日参り'
-    image: 'img/saireiichi-3073.jpg'
+    image: '/img/saireiichi-3073.jpg'
     linkUrl: 'tsuitachimairi'
     description: |
       毎月1日には『朔日参り』をおすすめいたします。

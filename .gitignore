@@ -1,1 +1,5 @@
+/public/
+/resources/_gen/
+node_modules
 tmp
+.hugo_build.lock
