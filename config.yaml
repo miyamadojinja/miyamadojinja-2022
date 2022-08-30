@@ -8,9 +8,10 @@ Copyright: 'Miyamadojinja'
 params:
   logoImage: 'img/logo.svg'
   officeAddress: '三重県四日市市海山道町1丁目62番地'
-  officeMapUrl: 'https://www.google.com/maps/place/Miyamado+Shrine/@34.9430372,136.6211072,18z'
+  officeMapLinkUrl: 'https://www.google.com/maps/place/Miyamado+Shrine/@34.9430372,136.6211072,18z'
   officeEmail: 'miyamado@m7.cty-net.ne.jp'
   officePhone: '059-345-5419'
+  officeMapIframeUrl: https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d418628.197999312!2d136.3412309250019!3d34.943252499999986!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60038ecd8e3d43dd%3A0xc695f13a514d79d5!2z5rW35bGx6YGT56We56S-!5e0!3m2!1sja!2sus!4v1579314598423!5m2!1sja!2sus
   twitterUrl: https://twitter.com/search?q=%E6%B5%B7%E5%B1%B1%E9%81%93%E7%A5%9E%E7%A4%BE
   facebookUrl: https://www.facebook.com/%E6%B5%B7%E5%B1%B1%E9%81%93%E7%A5%9E%E7%A4%BE-137077743078473
   instagramUrl: https://www.instagram.com/miyamado_shrine
