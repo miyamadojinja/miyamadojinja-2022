@@ -26,8 +26,8 @@ $navbar-item-hover-background-color: transparent;
 }
 
 // to adjust the size of navbar logo image
-.navbar-brand img {
-  max-height: 4rem !important;
+.navbar-brand {
+  height: $navbar-height;
 }
 
 // to make the image height consistent in the user-determined content
