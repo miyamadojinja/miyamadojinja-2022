@@ -82,3 +82,79 @@ collections:
           - label: 'アクセス2'
             name: 'access2'
             widget: 'markdown'
+      - file: 'content/events.md'
+        label: '年間行事'
+        name: 'events'
+        fields:
+          - label: '本文'
+            name: 'body'
+            widget: 'markdown'
+      - file: 'content/gokito.md'
+        label: '御祈祷・出張祭典'
+        name: 'gokito'
+        fields:
+          - label: '本文'
+            name: 'body'
+            widget: 'markdown'
+      - file: 'content/juyohin.md'
+        label: '授与品'
+        name: 'juyohin'
+        fields:
+          - label: '本文'
+            name: 'body'
+            widget: 'markdown'
+          - label: 'おふだ説明'
+            name: 'ofudaDescription'
+            widget: 'string'
+          - label: 'おふだリスト'
+            name: 'ofudaCollection'
+            widget: 'list'
+            fields:
+              - { label: '名称', name: 'name', widget: 'string' }
+              - { label: '説明', name: 'description', widget: 'markdown' }
+              - { label: '写真', name: 'image', widget: 'image' }
+          - label: 'お守り説明'
+            name: 'omamoriDescription'
+            widget: 'string'
+          - label: 'お守りリスト'
+            name: 'omamoriCollection'
+            widget: 'list'
+            fields:
+              - { label: '名称', name: 'name', widget: 'string' }
+              - { label: '説明', name: 'description', widget: 'markdown' }
+              - { label: '写真', name: 'image', widget: 'image' }
+      - file: 'content/kyoshiki.md'
+        label: '結婚式'
+        name: 'kyoshiki'
+        fields:
+          - label: '本文'
+            name: 'body'
+            widget: 'markdown'
+      - file: 'content/tenjinzo.md'
+        label: '大天神像'
+        name: 'tenjinzo'
+        fields:
+          - label: '本文'
+            name: 'body'
+            widget: 'markdown'
+      - file: 'content/tsuitachimairi.md'
+        label: '朔日参り'
+        name: 'tsuitachimairi'
+        fields:
+          - label: '本文'
+            name: 'body'
+            widget: 'markdown'
+      - file: 'content/yakudoshi.md'
+        label: '厄年'
+        name: 'yakudoshi'
+        fields:
+          - label: '本文'
+            name: 'body'
+            widget: 'markdown'
+      - file: 'content/yomeiri.md'
+        label: '狐の嫁入り神事'
+        name: 'yomeiri'
+        fields:
+          - label: '本文'
+            name: 'body'
+            widget: 'markdown'
