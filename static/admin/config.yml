@@ -30,8 +30,8 @@ locale: 'ja'
 show_preview_links: false
 
 collections:
-  - name: 'pages'
-    label: 'ページ'
+  - name: 'Fixed pages'
+    label: '固定ページ'
     editor:
       preview: false
     files:
@@ -42,7 +42,7 @@ collections:
           - label: 'お知らせ'
             name: 'news'
             widget: 'markdown'
-          - label: 'イントロ写真'
+          - label: '写真'
             name: 'mainImage'
             widget: 'image'
           - label: 'イントロ'
@@ -158,3 +158,25 @@ collections:
           - label: '本文'
             name: 'body'
             widget: 'markdown'
+  - name: 'User-defined pages'
+    label: 'ユーザー定義ページ'
+    folder: 'content'
+    filter: { field: 'created_by', value: 'user' }
+    create: true
+    slug: '{{fields.slug}}'
+    editor:
+      preview: false
+    fields:
+      - label: created_by
+        name: 'created_by'
+        widget: 'hidden'
+        default: 'user'
+      - label: 題目
+        name: 'title'
+        widget: 'string'
+      - label: スラッグ
+        name: 'slug'
+        widget: 'string'
+      - label: 本文
+        name: 'body'
+        widget: 'markdown'

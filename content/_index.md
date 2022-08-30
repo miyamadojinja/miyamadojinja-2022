@@ -1,5 +1,7 @@
 ---
 # The content of the Homepage.
+title: ホーム
+
 mainImage: '/img/honden-0006.jpg'
 
 introduction:
