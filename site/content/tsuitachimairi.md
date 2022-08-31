@@ -1,5 +1,6 @@
 ---
 title: 朔日参り
+mainImage: '/img/saireiichi-3073.jpg'
 ---
 
 毎月 1 日には『朔日参り』をおすすめいたします。
@@ -16,6 +17,5 @@ title: 朔日参り
 
 旬の農作物をはじめ、ヘルシー食材・珍品・榊や生花などいろいろなものをかなりお値打ちで皆さまに提供しています。
 
-![](/img/saireiichi-101.jpg)
 ![](/img/saireiichi-102.jpg)
-![](/img/saireiichi-3073.jpg)
+![](/img/saireiichi-101.jpg)

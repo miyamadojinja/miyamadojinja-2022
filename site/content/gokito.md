@@ -1,8 +1,7 @@
 ---
 title: 御祈祷・出張祭典
+mainImage: '/img/kurumaharai.jpg'
 ---
-
-![](/img/kurumaharai.jpg)
 
 ### お願い事
 

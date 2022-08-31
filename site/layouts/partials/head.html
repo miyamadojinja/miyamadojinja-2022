@@ -43,4 +43,11 @@
   {{ if .IsHome }}
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   {{ end }}
+
+  {{/*
+    progressive-image.js
+    - https://github.com/craigbuckler/progressive-image.js
+  */}}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/progressive-image.js/dist/progressive-image.css">
+  <script src="https://cdn.jsdelivr.net/npm/progressive-image.js/dist/progressive-image.js" async></script>
 </head>

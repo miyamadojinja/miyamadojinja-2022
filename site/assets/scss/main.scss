@@ -17,3 +17,12 @@ body {
   background-color: $grey-darker;
   color: $white-ter;
 }
+
+// to avoid text content jumping around while image is loading
+.mn-ProgressiveImage {
+  picture,
+  img {
+    display: block;
+    min-height: 250px;
+  }
+}

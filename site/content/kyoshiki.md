@@ -1,5 +1,6 @@
 ---
 title: 結婚式
+mainImage: '/img/kyoshiki-otyou.jpg'
 ---
 
 
@@ -7,9 +8,6 @@ title: 結婚式
 また、開運のご神徳は、お二人の門出にふさわしいはなむけとなるでしょう。
 
 挙式初穂料：50,000円以上 ※神職による雅楽（龍笛）の奏楽あり。
-
-![](/img/kyoshiki-otyou.jpg)
-
 
 ![](/img/kyoshiki-kotobuki-course.png)
 

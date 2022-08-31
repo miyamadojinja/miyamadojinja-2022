@@ -6,6 +6,11 @@
   </div>
 </section>
 <main class="container my-5 px-4">
+  {{ if .Params.MainImage }}
+    <div class="mb-4">
+      {{ partial "progressive-image.html" (dict "context" . "src" .Params.MainImage "alt" .Title) }}
+    </div>
+  {{ end }}
   <div class="content mb-6">{{ .Content }}</div>
   <section class="mb-6">
     <h3 class="title">おふだ</h3>

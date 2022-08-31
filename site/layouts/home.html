@@ -1,14 +1,14 @@
 {{ define "main" }}
 
 {{ if .Params.News }}
-<div class="notification is-info is-light" >
+<div class="notification is-info is-light m-0" >
   <div class="content">
     {{ .Params.News | markdownify }}
   </div>
 </div>
 {{ end }}
 <header class="hero introduction">
-  <img src="{{ .Params.MainImage }}">
+  {{ partial "progressive-image.html" (dict "context" . "src" .Params.MainImage "alt" .Title) }}
   <div class="hero-body">
     <div class="content">
       {{ .Params.Introduction | markdownify }}
@@ -21,9 +21,9 @@
       {{ .Content }}
     </span>
   </section>
-
-  <a class="button is-info is-light" href="/yakudoshi">今年の厄年の方は・・・</a>
-
+  <section class="section px-0 yakudoshi">
+    <a class="button is-info is-light" href="/yakudoshi">今年の厄年の方は・・・</a>
+  </section>
   <section class="section px-0 saijin">
     {{ partial "card-columns" .Params.Saijin }}
   </section>

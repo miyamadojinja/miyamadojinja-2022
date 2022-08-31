@@ -39,12 +39,12 @@ collections:
         label: 'ホーム'
         name: 'home'
         fields:
-          - label: 'お知らせ'
-            name: 'news'
-            widget: 'markdown'
           - label: '写真'
             name: 'mainImage'
             widget: 'image'
+          - label: 'お知らせ'
+            name: 'news'
+            widget: 'markdown'
           - label: 'イントロ'
             name: 'introduction'
             widget: 'markdown'
@@ -83,6 +83,9 @@ collections:
         label: '年間行事'
         name: 'events'
         fields:
+          - label: '写真'
+            name: 'mainImage'
+            widget: 'image'
           - label: '本文'
             name: 'body'
             widget: 'markdown'
@@ -90,6 +93,9 @@ collections:
         label: '御祈祷・出張祭典'
         name: 'gokito'
         fields:
+          - label: '写真'
+            name: 'mainImage'
+            widget: 'image'
           - label: '本文'
             name: 'body'
             widget: 'markdown'
@@ -97,6 +103,9 @@ collections:
         label: '授与品'
         name: 'juyohin'
         fields:
+          - label: '写真'
+            name: 'mainImage'
+            widget: 'image'
           - label: '本文'
             name: 'body'
             widget: 'markdown'
@@ -124,6 +133,9 @@ collections:
         label: '結婚式'
         name: 'kyoshiki'
         fields:
+          - label: '写真'
+            name: 'mainImage'
+            widget: 'image'
           - label: '本文'
             name: 'body'
             widget: 'markdown'
@@ -131,6 +143,9 @@ collections:
         label: '大天神像'
         name: 'tenjinzo'
         fields:
+          - label: '写真'
+            name: 'mainImage'
+            widget: 'image'
           - label: '本文'
             name: 'body'
             widget: 'markdown'
@@ -138,6 +153,9 @@ collections:
         label: '朔日参り'
         name: 'tsuitachimairi'
         fields:
+          - label: '写真'
+            name: 'mainImage'
+            widget: 'image'
           - label: '本文'
             name: 'body'
             widget: 'markdown'
@@ -145,6 +163,9 @@ collections:
         label: '厄年'
         name: 'yakudoshi'
         fields:
+          - label: '写真'
+            name: 'mainImage'
+            widget: 'image'
           - label: '本文'
             name: 'body'
             widget: 'markdown'
@@ -152,6 +173,9 @@ collections:
         label: '狐の嫁入り神事'
         name: 'yomeiri'
         fields:
+          - label: '写真'
+            name: 'mainImage'
+            widget: 'image'
           - label: '本文'
             name: 'body'
             widget: 'markdown'
@@ -177,3 +201,6 @@ collections:
       - label: 本文
         name: 'body'
         widget: 'markdown'
+      - label: '写真'
+        name: 'mainImage'
+        widget: 'image'
