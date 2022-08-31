@@ -1,3 +1,3 @@
 #!/bin/bash
 
-hugo
+./bin/setup && hugo -d ../public -s site --gc
