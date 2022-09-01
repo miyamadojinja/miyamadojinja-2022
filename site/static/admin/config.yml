@@ -29,6 +29,13 @@ locale: 'ja'
 
 show_preview_links: false
 
+search: false
+
+slug:
+  encoding: 'ascii'
+  clean_accents: true
+  sanitize_replacement: '_'
+
 collections:
   - name: 'Fixed pages'
     label: '固定ページ'
