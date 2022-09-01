@@ -5,6 +5,7 @@
 @import '../../node_modules/bulma/sass/utilities/_all';
 
 // Override Bulma variables
+$container-max-width: 1000px + (2 * $gap);
 $text: $black-ter;
 
 $navbar-breakpoint: $tablet;
