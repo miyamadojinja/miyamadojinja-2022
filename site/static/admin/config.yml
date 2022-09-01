@@ -17,7 +17,7 @@ backend:
 # https://www.netlifycms.org/docs/beta-features/#working-with-a-local-git-repository
 local_backend: true
 
-media_folder: content/img
+media_folder: site/content/img
 
 public_folder: /img
 
@@ -35,7 +35,7 @@ collections:
     editor:
       preview: false
     files:
-      - file: 'content/_index.md'
+      - file: 'site/content/_index.md'
         label: 'ホーム'
         name: 'home'
         fields:
@@ -79,7 +79,7 @@ collections:
           - label: 'アクセス2'
             name: 'access2'
             widget: 'markdown'
-      - file: 'content/events.md'
+      - file: 'site/content/events.md'
         label: '年間行事'
         name: 'events'
         fields:
@@ -89,7 +89,7 @@ collections:
           - label: '本文'
             name: 'body'
             widget: 'markdown'
-      - file: 'content/gokito.md'
+      - file: 'site/content/gokito.md'
         label: '御祈祷・出張祭典'
         name: 'gokito'
         fields:
@@ -99,7 +99,7 @@ collections:
           - label: '本文'
             name: 'body'
             widget: 'markdown'
-      - file: 'content/juyohin.md'
+      - file: 'site/content/juyohin.md'
         label: '授与品'
         name: 'juyohin'
         fields:
@@ -129,7 +129,7 @@ collections:
               - { label: '名称', name: 'name', widget: 'string' }
               - { label: '説明', name: 'description', widget: 'markdown' }
               - { label: '写真', name: 'image', widget: 'image' }
-      - file: 'content/kyoshiki.md'
+      - file: 'site/content/kyoshiki.md'
         label: '結婚式'
         name: 'kyoshiki'
         fields:
@@ -139,7 +139,7 @@ collections:
           - label: '本文'
             name: 'body'
             widget: 'markdown'
-      - file: 'content/tenjinzo.md'
+      - file: 'site/content/tenjinzo.md'
         label: '大天神像'
         name: 'tenjinzo'
         fields:
@@ -149,7 +149,7 @@ collections:
           - label: '本文'
             name: 'body'
             widget: 'markdown'
-      - file: 'content/tsuitachimairi.md'
+      - file: 'site/content/tsuitachimairi.md'
         label: '朔日参り'
         name: 'tsuitachimairi'
         fields:
@@ -159,7 +159,7 @@ collections:
           - label: '本文'
             name: 'body'
             widget: 'markdown'
-      - file: 'content/yakudoshi.md'
+      - file: 'site/content/yakudoshi.md'
         label: '厄年'
         name: 'yakudoshi'
         fields:
@@ -169,7 +169,7 @@ collections:
           - label: '本文'
             name: 'body'
             widget: 'markdown'
-      - file: 'content/yomeiri.md'
+      - file: 'site/content/yomeiri.md'
         label: '狐の嫁入り神事'
         name: 'yomeiri'
         fields:
@@ -181,7 +181,7 @@ collections:
             widget: 'markdown'
   - name: 'User-defined pages'
     label: 'ユーザー定義ページ'
-    folder: 'content'
+    folder: 'site/content'
     filter: { field: 'created_by', value: 'user' }
     create: true
     slug: '{{fields.slug}}'
