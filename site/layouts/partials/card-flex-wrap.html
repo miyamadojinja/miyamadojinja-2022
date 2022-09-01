@@ -1,8 +1,8 @@
-<ul class="is-flex is-flex-wrap-wrap is-flex-direction-row">
+<ul class="is-flex is-flex-wrap-wrap is-justify-content-center">
   {{ range . }}
-    <li class="m-2" style="overflow-x:auto">
+    <li class="m-2">
       {{ if .linkUrl }}<a href="{{.linkUrl}}">{{ end }}
-      <div class="card" style="width: 20rem">
+      <div class="card mb-4" style="max-width: 20rem">
         <div class="card-image">
           <figure class="image">
             <img src="{{ relURL .image }}">
