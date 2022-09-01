@@ -49,9 +49,11 @@ collections:
           - label: '写真'
             name: 'mainImage'
             widget: 'image'
+            required: false
           - label: 'お知らせ'
             name: 'news'
             widget: 'markdown'
+            required: false
           - label: 'イントロ'
             name: 'introduction'
             widget: 'markdown'
@@ -63,29 +65,32 @@ collections:
             widget: 'list'
             fields:
               - { label: '名称', name: 'name', widget: 'string' }
-              - { label: '説明', name: 'description', widget: 'markdown' }
-              - { label: '写真', name: 'image', widget: 'image' }
-              - { label: 'リンクURL', name: 'linkUrl', widget: 'string' }
+              - { label: '説明', name: 'description', widget: 'markdown', required: false }
+              - { label: '写真', name: 'image', widget: 'image', required: false }
+              - { label: 'リンクURL', name: 'linkUrl', widget: 'string', required: false }
           - label: '特記事項'
             name: features
             widget: list
             fields:
               - { label: '名称', name: 'name', widget: 'text' }
-              - { label: '説明', name: 'description', widget: 'markdown' }
-              - { label: '写真', name: 'image', widget: 'image' }
-              - { label: 'リンクURL', name: 'linkUrl', widget: 'text' }
+              - { label: '説明', name: 'description', widget: 'markdown', required: false }
+              - { label: '写真', name: 'image', widget: 'image', required: false }
+              - { label: 'リンクURL', name: 'linkUrl', widget: 'string', required: false }
           - label: '境内写真'
             name: 'keidaiImage'
             widget: 'image'
+            required: false
           - label: '境内説明'
             name: 'keidaiDescription'
             widget: 'markdown'
           - label: 'アクセス1'
             name: 'access1'
             widget: 'markdown'
+            required: false
           - label: 'アクセス2'
             name: 'access2'
             widget: 'markdown'
+            required: false
       - file: 'site/content/events.md'
         label: '年間行事'
         name: 'events'
@@ -93,6 +98,7 @@ collections:
           - label: '写真'
             name: 'mainImage'
             widget: 'image'
+            required: false
           - label: '本文'
             name: 'body'
             widget: 'markdown'
@@ -103,6 +109,7 @@ collections:
           - label: '写真'
             name: 'mainImage'
             widget: 'image'
+            required: false
           - label: '本文'
             name: 'body'
             widget: 'markdown'
@@ -113,29 +120,32 @@ collections:
           - label: '写真'
             name: 'mainImage'
             widget: 'image'
+            required: false
           - label: '本文'
             name: 'body'
             widget: 'markdown'
           - label: 'おふだ説明'
             name: 'ofudaDescription'
             widget: 'string'
+            required: false
           - label: 'おふだリスト'
             name: 'ofudaCollection'
             widget: 'list'
             fields:
               - { label: '名称', name: 'name', widget: 'string' }
-              - { label: '説明', name: 'description', widget: 'markdown' }
-              - { label: '写真', name: 'image', widget: 'image' }
+              - { label: '説明', name: 'description', widget: 'markdown', required: false }
+              - { label: '写真', name: 'image', widget: 'image', required: false }
           - label: 'お守り説明'
             name: 'omamoriDescription'
             widget: 'string'
+            required: false
           - label: 'お守りリスト'
             name: 'omamoriCollection'
             widget: 'list'
             fields:
               - { label: '名称', name: 'name', widget: 'string' }
-              - { label: '説明', name: 'description', widget: 'markdown' }
-              - { label: '写真', name: 'image', widget: 'image' }
+              - { label: '説明', name: 'description', widget: 'markdown', required: false }
+              - { label: '写真', name: 'image', widget: 'image', required: false }
       - file: 'site/content/kyoshiki.md'
         label: '結婚式'
         name: 'kyoshiki'
@@ -143,6 +153,7 @@ collections:
           - label: '写真'
             name: 'mainImage'
             widget: 'image'
+            required: false
           - label: '本文'
             name: 'body'
             widget: 'markdown'
@@ -153,6 +164,7 @@ collections:
           - label: '写真'
             name: 'mainImage'
             widget: 'image'
+            required: false
           - label: '本文'
             name: 'body'
             widget: 'markdown'
@@ -163,6 +175,7 @@ collections:
           - label: '写真'
             name: 'mainImage'
             widget: 'image'
+            required: false
           - label: '本文'
             name: 'body'
             widget: 'markdown'
@@ -173,6 +186,7 @@ collections:
           - label: '写真'
             name: 'mainImage'
             widget: 'image'
+            required: false
           - label: '本文'
             name: 'body'
             widget: 'markdown'
@@ -183,6 +197,7 @@ collections:
           - label: '写真'
             name: 'mainImage'
             widget: 'image'
+            required: false
           - label: '本文'
             name: 'body'
             widget: 'markdown'
@@ -199,6 +214,10 @@ collections:
         name: 'created_by'
         widget: 'hidden'
         default: 'user'
+      - label: '写真'
+        name: 'mainImage'
+        widget: 'image'
+        required: false
       - label: 題目
         name: 'title'
         widget: 'string'
@@ -208,6 +227,3 @@ collections:
       - label: 本文
         name: 'body'
         widget: 'markdown'
-      - label: '写真'
-        name: 'mainImage'
-        widget: 'image'
