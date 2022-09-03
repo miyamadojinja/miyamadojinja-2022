@@ -31,11 +31,6 @@ show_preview_links: false
 
 search: false
 
-slug:
-  encoding: 'ascii'
-  clean_accents: true
-  sanitize_replacement: '_'
-
 collections:
   - name: 'Fixed pages'
     label: '固定ページ'
@@ -201,29 +196,34 @@ collections:
           - label: '本文'
             name: 'body'
             widget: 'markdown'
-  - name: 'User-defined pages'
-    label: 'ユーザー定義ページ'
-    folder: 'site/content'
-    filter: { field: 'created_by', value: 'user' }
+  - name: 'blog'
+    label: 'ブログ'
+    folder: 'site/content/blog'
     create: true
-    slug: '{{fields.slug}}'
+    # https://www.netlifycms.org/docs/configuration-options/#slug
+    slug: '{{year}}-{{month}}-{{slug}}' # E.g. "2020-01-hello"
     editor:
       preview: false
     fields:
-      - label: created_by
-        name: 'created_by'
-        widget: 'hidden'
-        default: 'user'
+      - label: 題目
+        name: 'title'
+        widget: 'string'
+      - label: 日付
+        name: date
+        widget: datetime
+        format: 'YYYY-MM-DD HH:mm:ss ZZ' # Needed to avoid the following error in the CMS preview: "Objects are not valid as a React child"
+        date_format: true
+        time_format: false
+        picker_utc: true # so users in all timezones will see the same date in the datetime picker
       - label: '写真'
         name: 'mainImage'
         widget: 'image'
         required: false
-      - label: 題目
-        name: 'title'
-        widget: 'string'
-      - label: スラッグ
-        name: 'slug'
-        widget: 'string'
       - label: 本文
         name: 'body'
         widget: 'markdown'
+      - label: 分類タグ
+        name: 'tags'
+        widget: 'list'
+        required: false
+        field: { label: Name, name: name, widget: string }

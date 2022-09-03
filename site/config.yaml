@@ -17,6 +17,10 @@ params:
   instagramUrl: https://www.instagram.com/miyamado_shrine
   description: |
     開運・厄除け・結び・合格の神様
+  # Specify sections to pull recent posts from.
+  mainSections:
+    - blog
+  recentPostCount: 6
 
 # https://gohugo.io/content-management/menus
 menu:
@@ -36,6 +40,10 @@ menu:
     - name: '行事'
       url: '/events'
       weight: 5
+
+# https://gohugo.io/content-management/image-processing/
+imaging:
+  quality: 75
 
 # https://gohugo.io/content-management/taxonomies/
 taxonomies:

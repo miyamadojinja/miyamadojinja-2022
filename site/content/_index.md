@@ -1,8 +1,6 @@
 ---
 mainImage: /img/honden-0006.jpg
 news: |-
-  ### お知らせ
-
   新型コロナウイルス感染拡大防止対策と致しまして
 
   * ご参拝の際はマスクの着用をお願い致します。
@@ -112,4 +110,4 @@ access2: |
 
 ![](/img/keidai-002.jpg)
 ![](/img/kitsune-008.jpg)
-![](/img/torii-011.jpg)
+![](/img/torii-0011.jpg)

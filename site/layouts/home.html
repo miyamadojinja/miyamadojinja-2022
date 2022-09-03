@@ -1,12 +1,5 @@
 {{ define "main" }}
 
-{{ if .Params.News }}
-<div class="notification is-info is-light m-0" >
-  <div class="content">
-    {{ .Params.News | markdownify }}
-  </div>
-</div>
-{{ end }}
 <header class="hero introduction">
   {{ partial "progressive-image.html" (dict "context" . "src" .Params.MainImage "alt" .Title) }}
   <div class="hero-body">
@@ -25,7 +18,23 @@
     <h2 class="title is-2">御祭神</h2>
     {{ partial "card-columns" .Params.Saijin }}
   </section>
-  <section class="notification has-text-centered">
+  <section class="section px-0 oshirase">
+    <h2 class="title is-2">お知らせ</h2>
+    {{ if .Params.News }}
+      <div class="notification is-info is-light" >
+        <div class="content">
+          {{ .Params.News | markdownify }}
+        </div>
+      </div>
+    {{ end }}
+    <div class="mb-5">
+      {{ partial "blog-list" . }}
+      <div class="tags">
+        {{ $blogPostCount := len (where .Site.RegularPages "Section" "!=" "") }}
+        <a href="/blog" class="tag">全記事<sub>{{ $blogPostCount }}</sub></a>
+        {{ partial "site-tags" . }}
+      </div>
+    </div>
     <a class="button" href="/yakudoshi">今年の厄年の方は・・・</a>
   </section>
   <section class="section px-0 features">

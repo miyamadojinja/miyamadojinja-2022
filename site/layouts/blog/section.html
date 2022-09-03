@@ -11,21 +11,15 @@
       {{ partial "progressive-image.html" (dict "context" . "src" .Params.MainImage "alt" .Title) }}
     </div>
   {{ end }}
+  {{ if ne (len .Site.Taxonomies.tags) 0 }}
+    <div class="tags are-large">
+      {{ partial "site-tags" . }}
+    </div>
+  {{ end }}
   <div class="content">{{ .Content }}</div>
   <div>
     {{ range .Paginator.Pages.ByPublishDate.Reverse }}
-    <a href="{{ .RelPermalink }}">
-      <article class="card mb-4">
-        <div class="card-content">
-          <div class="media">
-            <div class="media-content">
-              <p class="title is-4">{{ .Title }}</p>
-            </div>
-          </div>
-          <div class="content">{{ .Summary }}</div>
-        </div>
-      </article>
-    </a>
+    {{ partial "blog-list-item" . }}
     {{ end }}
   </div>
   {{- template "_internal/pagination.html" . -}}

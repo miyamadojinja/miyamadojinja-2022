@@ -1,0 +1,19 @@
+{{/* https://discourse.gohugo.io/t/list-all-tags-categories/17765 */}}
+{{/*
+  ## Examples
+
+  In a page
+
+      {{ partial "page-tags.html" . }}
+
+  */}}
+
+{{ range $name := .Params.Tags }}
+
+  {{ with $.Site.GetPage (printf "/tags/%s" $name) }}
+    <a href="{{ .RelPermalink }}" class="tag">
+      {{ $name }}
+    </a>
+  {{ end }}
+
+{{ end }}
