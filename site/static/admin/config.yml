@@ -205,6 +205,10 @@ collections:
     editor:
       preview: false
     fields:
+      - label: 下書き
+        name: 'draft'
+        widget: 'boolean'
+        default: true
       - label: 題目
         name: 'title'
         widget: 'string'
