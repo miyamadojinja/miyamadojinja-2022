@@ -8,5 +8,5 @@
 
 {{/* Range through the first $n_posts items of the section */}}
 {{ range (first $n_posts $section) }}
-  {{ partial "blog-list-item" . }}
+  {{ partial "blog-card" . }}
 {{ end }}

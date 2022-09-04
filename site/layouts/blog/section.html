@@ -19,7 +19,7 @@
   <div class="content">{{ .Content }}</div>
   <div>
     {{ range .Paginator.Pages.ByPublishDate.Reverse }}
-    {{ partial "blog-list-item" . }}
+      {{ partial "blog-card" . }}
     {{ end }}
   </div>
   {{- template "_internal/pagination.html" . -}}

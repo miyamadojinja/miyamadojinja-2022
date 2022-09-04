@@ -28,7 +28,7 @@
       </div>
     {{ end }}
     <div class="mb-5">
-      {{ partial "blog-list" . }}
+      {{ partial "blog-table" . }}
       <div class="tags">
         {{ $blogPostCount := len (where .Site.RegularPages "Section" "!=" "") }}
         <a href="/blog" class="tag">全記事<sub>{{ $blogPostCount }}</sub></a>
