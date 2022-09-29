@@ -47,20 +47,20 @@ collections:
             required: false
           - label: 'お知らせ'
             name: 'news'
-            widget: 'markdown'
+            widget: 'text'
             required: false
           - label: 'イントロ'
             name: 'introduction'
-            widget: 'markdown'
+            widget: 'text'
           - label: '本文'
             name: 'body'
-            widget: 'markdown'
+            widget: 'text'
           - label: '御祭神'
             name: 'saijin'
             widget: 'list'
             fields:
               - { label: '名称', name: 'name', widget: 'string' }
-              - { label: '説明', name: 'description', widget: 'markdown', required: false }
+              - { label: '説明', name: 'description', widget: 'text', required: false }
               - { label: '写真', name: 'image', widget: 'image', required: false }
               - { label: 'リンクURL', name: 'linkUrl', widget: 'string', required: false }
           - label: '特記事項'
@@ -68,7 +68,7 @@ collections:
             widget: list
             fields:
               - { label: '名称', name: 'name', widget: 'text' }
-              - { label: '説明', name: 'description', widget: 'markdown', required: false }
+              - { label: '説明', name: 'description', widget: 'text', required: false }
               - { label: '写真', name: 'image', widget: 'image', required: false }
               - { label: 'リンクURL', name: 'linkUrl', widget: 'string', required: false }
           - label: '境内写真'
@@ -77,14 +77,14 @@ collections:
             required: false
           - label: '境内説明'
             name: 'keidaiDescription'
-            widget: 'markdown'
+            widget: 'text'
           - label: 'アクセス1'
             name: 'access1'
-            widget: 'markdown'
+            widget: 'text'
             required: false
           - label: 'アクセス2'
             name: 'access2'
-            widget: 'markdown'
+            widget: 'text'
             required: false
       - file: 'site/content/events.md'
         label: '年間行事'
@@ -96,7 +96,7 @@ collections:
             required: false
           - label: '本文'
             name: 'body'
-            widget: 'markdown'
+            widget: 'text'
       - file: 'site/content/gokito.md'
         label: '御祈祷・出張祭典'
         name: 'gokito'
@@ -107,7 +107,7 @@ collections:
             required: false
           - label: '本文'
             name: 'body'
-            widget: 'markdown'
+            widget: 'text'
       - file: 'site/content/juyohin.md'
         label: '授与品'
         name: 'juyohin'
@@ -118,7 +118,7 @@ collections:
             required: false
           - label: '本文'
             name: 'body'
-            widget: 'markdown'
+            widget: 'text'
           - label: 'おふだ説明'
             name: 'ofudaDescription'
             widget: 'string'
@@ -128,7 +128,7 @@ collections:
             widget: 'list'
             fields:
               - { label: '名称', name: 'name', widget: 'string' }
-              - { label: '説明', name: 'description', widget: 'markdown', required: false }
+              - { label: '説明', name: 'description', widget: 'text', required: false }
               - { label: '写真', name: 'image', widget: 'image', required: false }
           - label: 'お守り説明'
             name: 'omamoriDescription'
@@ -139,7 +139,7 @@ collections:
             widget: 'list'
             fields:
               - { label: '名称', name: 'name', widget: 'string' }
-              - { label: '説明', name: 'description', widget: 'markdown', required: false }
+              - { label: '説明', name: 'description', widget: 'text', required: false }
               - { label: '写真', name: 'image', widget: 'image', required: false }
       - file: 'site/content/kyoshiki.md'
         label: '結婚式'
@@ -151,7 +151,7 @@ collections:
             required: false
           - label: '本文'
             name: 'body'
-            widget: 'markdown'
+            widget: 'text'
       - file: 'site/content/tenjinzo.md'
         label: '大天神像'
         name: 'tenjinzo'
@@ -162,7 +162,7 @@ collections:
             required: false
           - label: '本文'
             name: 'body'
-            widget: 'markdown'
+            widget: 'text'
       - file: 'site/content/tsuitachimairi.md'
         label: '朔日参り'
         name: 'tsuitachimairi'
@@ -173,7 +173,7 @@ collections:
             required: false
           - label: '本文'
             name: 'body'
-            widget: 'markdown'
+            widget: 'text'
       - file: 'site/content/yakudoshi.md'
         label: '厄年'
         name: 'yakudoshi'
@@ -184,7 +184,7 @@ collections:
             required: false
           - label: '本文'
             name: 'body'
-            widget: 'markdown'
+            widget: 'text'
       - file: 'site/content/yomeiri.md'
         label: '狐の嫁入り神事'
         name: 'yomeiri'
@@ -195,7 +195,7 @@ collections:
             required: false
           - label: '本文'
             name: 'body'
-            widget: 'markdown'
+            widget: 'text'
   - name: 'blog'
     label: 'ブログ'
     folder: 'site/content/blog'
@@ -209,6 +209,7 @@ collections:
         name: 'draft'
         widget: 'boolean'
         default: true
+        required: false
       - label: 題目
         name: 'title'
         widget: 'string'
@@ -225,7 +226,7 @@ collections:
         required: false
       - label: 本文
         name: 'body'
-        widget: 'markdown'
+        widget: 'text'
       - label: 分類タグ
         name: 'tags'
         widget: 'list'
