@@ -227,6 +227,7 @@ collections:
       - label: 本文
         name: 'body'
         widget: 'text'
+        required: false
       - label: 分類タグ
         name: 'tags'
         widget: 'list'
