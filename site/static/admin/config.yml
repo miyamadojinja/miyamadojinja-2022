@@ -201,7 +201,7 @@ collections:
     folder: 'site/content/blog'
     create: true
     # https://www.netlifycms.org/docs/configuration-options/#slug
-    slug: '{{year}}-{{month}}-{{slug}}' # E.g. "2020-01-hello"
+    slug: '{{year}}-{{month}}-{{day}}-{{hour}}{{minute}}{{second}}' # E.g. "2020-01-01-123456"
     editor:
       preview: false
     fields:
