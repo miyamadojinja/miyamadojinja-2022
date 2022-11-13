@@ -12,7 +12,7 @@
     {{ range (first $n_posts $section) }}
       <tr>
         <td class="has-text-grey">
-          <time datetime="{{ . }}">{{ dateFormat "2006.1.2" .Date }}</time>
+          <time datetime="{{ . }}">{{ dateFormat "2006/01/02" .Date }}</time>
         </td>
         <td>
           <a href="{{ .RelPermalink }}">
