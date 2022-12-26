@@ -1,5 +1,5 @@
 ---
-mainImage: img/honden-20220927224105.jpg
+mainImage: /img/honden-20220927224105.jpg
 news: |-
   新型コロナウイルス感染拡大防止対策と致しまして
 
