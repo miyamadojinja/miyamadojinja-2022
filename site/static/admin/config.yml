@@ -196,16 +196,14 @@ collections:
           - label: '本文'
             name: 'body'
             widget: 'text'
-  - name: 'blog'
-    label: 'ブログ'
-    folder: 'site/content/blog'
-    create: true
-    # https://www.netlifycms.org/docs/configuration-options/#slug
-    slug: '{{year}}-{{month}}-{{day}}-{{hour}}{{minute}}{{second}}' # E.g. "2020-01-01-123456"
-    editor:
-      preview: false
+  - name: blog # Used in routes, ie.: /admin/collections/:slug/edit
+    label: 記事 # Used in the UI, ie.: "New Blog Post"
+    folder: 'site/content/blog' # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: '{{year}}-{{month}}-{{day}}-{{hour}}{{minute}}' # E.g. "2020-01-01-1234"
+    editor: { preview: false }
     fields:
-      - label: 下書き
+      - label: 公開
         name: 'draft'
         widget: 'boolean'
         default: true
