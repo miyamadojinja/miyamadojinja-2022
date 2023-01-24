@@ -3,11 +3,13 @@
     <li class="column">
       {{ if .linkUrl }}<a href="{{.linkUrl}}">{{ end }}
       <div class="card mb-4">
-        <div class="card-image">
-          <figure class="image">
-            <img src="{{ relURL .image }}">
-          </figure>
-        </div>
+        {{ if .image }}
+          <div class="card-image">
+            <figure class="image">
+              <img src="{{ relURL .image }}">
+            </figure>
+          </div>
+        {{ end }}
         <div class="card-content">
           <h4 class="title is-4">{{ .name }}</h4>
           <div class="content">{{ .description | markdownify }}</div>

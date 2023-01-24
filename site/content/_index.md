@@ -10,8 +10,8 @@ introduction: >
   海山道開運稲荷さまは海でも山でも道をきり開いて開運を運んで下さる尊いお稲荷さまということで、お金やお客様を運べば商売繁盛、車や船を運んで交通安全・海上安全・旅行安全、筆を運んで受験合格・就職出世成功、その他縁結、子授、安産、病気平癒、借金取り等道を切り開いて都合よくお運びいただく開運諸願成就のあしどめ稲荷さまです。
 saijin:
   - name: 洲崎濱宮神明神社 御祭神
-    image: /img/shinmeisha.jpg
-    linkUrl: https://ja.wikipedia.org/wiki/%E6%B4%B2%E5%B4%8E%E6%BF%B1%E5%AE%AE%E7%A5%9E%E6%98%8E%E7%A5%9E%E7%A4%BE
+    image: null
+    linkUrl: null
     description: |
       - 面足命
       - 天照大御神
@@ -26,7 +26,7 @@ saijin:
       - 保食神
       - 倭姫命
   - name: 海山道開運稲荷神社 御祭神
-    image: /img/torii-2875-1.jpg
+    image: null
     linkUrl: null
     description: |
       - 倉稲魂神（うがのみたま）
