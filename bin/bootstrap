@@ -1,10 +1,16 @@
 #!/bin/bash
+set -e
 
-echo "===> Checking if hugo is installed"
-hugo version
+# checks if the command exists
+function exists {
+  if [[ ! "$(command -v "$@")" ]]; then
+    printf "✗ %s not installed\n" "$@" 1>&2
+    return 1
+  else
+    printf "✓ %s exists\n" "$@"
+  fi
+}
 
-echo "===> Checking if nodejs is installed"
-node --version
-
-echo "===> Checking if npm is installed"
-npm --version
+if exists hugo; then hugo version; fi; printf "\n";
+if exists node; then node --version; fi; printf "\n";
+if exists npm; then npm --version; fi; printf "\n";

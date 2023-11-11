@@ -1,4 +1,4 @@
 #!/bin/bash
 
-echo "===> Installing dependencies"
+echo "===> Install dependencies"
 npm install --prefix site
