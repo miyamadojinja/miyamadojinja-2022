@@ -17,22 +17,26 @@
   <section class="section px-0 saijin">
     {{ partial "card-columns" .Params.Saijin }}
   </section>
+  {{ if .Params.News }}
   <section class="section px-0 oshirase">
     <h2 class="title is-2">お知らせ</h2>
-    {{ if .Params.News }}
-      <div class="notification is-info is-light" >
-        <div class="content">
-          {{ .Params.News | markdownify }}
-        </div>
+    <div class="notification is-info is-light" >
+      <div class="content">
+        {{ .Params.News | markdownify }}
       </div>
-    {{ end }}
+    </div>
+  </section>
+  {{ end }}
+  <section class="blog-table">
     <div class="mb-5">
       {{ partial "blog-table" . }}
+      {{ $blogPostCount := len (where .Site.RegularPages "Section" "!=" "") }}
+      {{ if gt 0 $blogPostCount }}
       <div class="tags">
-        {{ $blogPostCount := len (where .Site.RegularPages "Section" "!=" "") }}
         <a href="/blog" class="tag">全記事<sub>{{ $blogPostCount }}</sub></a>
         {{ partial "site-tags" . }}
       </div>
+      {{ end }}
     </div>
     <a class="button" href="/yakudoshi">今年の厄年の方は・・・</a>
   </section>
