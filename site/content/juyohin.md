@@ -3,7 +3,7 @@ type: juyohin
 title: 授与品
 
 ofudaDescription: |
-  当社神職が、手作業で謹製しています。※初穂料は各 1 体 700 円です。
+  当社神職が、手作業で謹製しています。※初穂料は各 1 体 800 円です。
 
 ofudaCollection:
   - image: '/img/ofuda-water.jpg'
