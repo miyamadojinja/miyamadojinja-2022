@@ -42,12 +42,6 @@ features:
     description: |
       節分の日は多くの参拝者で境内は非常に賑わいます。
       この神事は毎年節分の日におこなわれ、『追儺の鬼はらい』として当神社に古くから伝わる厄祓行事です。
-  - name: 朔日参り
-    image: /img/saireiichi-3073.jpg
-    linkUrl: tsuitachimairi
-    description: |
-      毎月1日には『朔日参り』をおすすめいたします。
-      毎月変わらずお参り出来るということは、まず身体が健康でなければ出来ないことであり、この上ない幸せなことです。
 keidaiImage: /img/keidai.png
 keidaiDescription: |
   洲崎濱宮神明神社海山道開運稲荷神社本殿、
