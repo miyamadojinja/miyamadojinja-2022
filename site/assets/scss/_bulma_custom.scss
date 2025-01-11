@@ -36,8 +36,8 @@ $navbar-item-hover-background-color: transparent;
   }
 }
 
-// to make the image height consistent in the user-determined content
-.content img {
+// to make the image height consistent in the user-determined content when multiple images are present
+.content img:not(:only-of-type) {
   width: 100%;
   height: auto;
   @include tablet {

@@ -1,7 +1,10 @@
 ---
 mainImage: /img/honden-20220927224105.jpg
-news: null
-introduction: >
+news: |
+  ## 節分豆まき祭
+  ![](/img/setsubun-flyer-2025.jpg)
+  [狐の嫁入り神事について](yomeiri)
+introduction: |
   海山道開運稲荷さまは海でも山でも道をきり開いて開運を運んで下さる尊いお稲荷さまということで、お金やお客様を運べば商売繁盛、車や船を運んで交通安全・海上安全・旅行安全、筆を運んで受験合格・就職出世成功、その他縁結、子授、安産、病気平癒、借金取り等道を切り開いて都合よくお運びいただく開運諸願成就のあしどめ稲荷さまです。
 saijin:
   - name: 洲崎濱宮神明神社 御祭神
@@ -103,3 +106,4 @@ access2: |
 ![](/img/torii-2023-5c57.jpg)
 ![](/img/sukeshiro-20240603-0008.jpg)
 ![](/img/kitsune-2023-51f6.jpg)
+![](/img/setsubun-1021.jpg)
