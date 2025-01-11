@@ -7,10 +7,15 @@
   <p>Miyamado Jinja is a Shinto Shrine located in Yokkaichi, Mie, Japan.</p>
 </div>
 
+## 🛠 Requirements
+
+- [Hugo Extended](https://gohugo.io/) (regular Hugo is not sufficient)
+- [Node.js](https://nodejs.org/)
+- [npm](https://www.npmjs.com/)
+
 ## 🚀 Quick start
 
 ```bash
-bin/bootstrap
 bin/setup
 bin/server
 ```
