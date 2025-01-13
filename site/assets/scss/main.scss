@@ -1,6 +1,56 @@
 @charset "utf-8";
 
-@import 'bulma_custom';
+// https://bulma.io/documentation/customize/with-node-sass/
+
+// Import only what you need from Bulma
+// https://github.com/jgthms/bulma/tree/master/sass
+@import '../../node_modules/bulma/sass/utilities/_all';
+
+// Override Bulma variables
+$container-max-width: 1000px + (2 * $gap);
+$text: $black-ter;
+
+$navbar-breakpoint: $tablet;
+$navbar-height: 5rem;
+$navbar-item-hover-background-color: transparent;
+
+@import '../../node_modules/bulma/sass/base/_all';
+@import '../../node_modules/bulma/sass/elements/_all';
+@import '../../node_modules/bulma/sass/form/_all';
+@import '../../node_modules/bulma/sass/components/_all';
+@import '../../node_modules/bulma/sass/grid/_all';
+@import '../../node_modules/bulma/sass/helpers/_all';
+@import '../../node_modules/bulma/sass/layout/_all';
+
+// to make the cards have equal height
+.card {
+  height: 100%;
+  min-width: 12rem;
+}
+
+// to adjust the size of navbar logo image
+.navbar-brand {
+  height: $navbar-height;
+  .navbar-item {
+    @include mobile {
+      max-width: 75vw;
+    }
+  }
+}
+
+// to make the image height consistent in the user-determined content when multiple images are present
+.content img:not(:only-of-type) {
+  width: 100%;
+  height: auto;
+  @include tablet {
+    width: auto;
+    max-height: 20rem;
+  }
+}
+
+.tag {
+  text-decoration: none !important;
+}
 
 body {
   min-height: 50vh;
