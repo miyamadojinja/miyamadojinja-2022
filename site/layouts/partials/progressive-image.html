@@ -1,41 +1,35 @@
-{{/* https://github.com/craigbuckler/progressive-image.js */}}
-{{/* https://gohugo.io/content-management/image-processing/ */}}
-{{/* https://discourse.gohugo.io/t/solved-media-in-separate-folder-and-accessing-with-page-resources/11756/5 */}}
 {{/*
-  Examples
+  Partial: progressive-image.html
 
-      {{ partial "progressive-image.html" (dict "src" .Params.image "alt" .Title) }}
+  - Uses progressive-image.js for lazy-loading
+  - Wraps valid image types (jpg, png, webp...) in `<picture>`
+  - Requires headless bundle at `content/img/`
 
-  */}}
+  References:
+    - https://github.com/craigbuckler/progressive-image.js
+    - https://gohugo.io/content-management/image-processing/
+*/}}
 
-{{/*
-  Do nothing for unsupported files to prevent Hugo from crashing
-  */}}
 {{ $ext := index (split .src "." ) 1 }}
 {{ $supported_exts := slice "bmp" "gif" "jpeg" "jpg" "png" "tif" "tiff" "webp" }}
-
 {{ if (in $supported_exts $ext) }}
-  {{ $headless_bundle := .context.Site.GetPage "page" "img" }}
-  {{/*
-    Use this snippet for inspecting accessible resouces:
-
-        {{ $headless_bundle.Resources }}
-
-    */}}
-
-  {{ $original := $headless_bundle.Resources.GetMatch (strings.TrimPrefix "/img/" .src) }}
-
-  <picture class="mn-ProgressiveImage">
-    {{ if $original }}
-      {{ $cropped := $original.Fill "1200x900 Center" }}{{/* Aspect ratio 4:3 */}}
-      {{ $small := $cropped.Resize "20x" }}
-      <a class="progressive replace" href="{{ $cropped.RelPermalink }}">
-        <img class="preview" src="{{ $small.RelPermalink }}">
-      </a>
+{{ $headless_bundle := .context.Site.GetPage "page" "img" }}
+{{ $original := $headless_bundle.Resources.GetMatch (strings.TrimPrefix "/img/" .src) }}
+<picture class="block mx-auto">
+  {{ if $original }}
+  {{ $cropped := $original.Fill "1200x900 Center" }} {{/* 4:3 aspect ratio */}}
+  {{ $small := $cropped.Resize "20x" }}
+  <a class="progressive replace block" href="{{ $cropped.RelPermalink }}">
+    <img
+          class="preview block max-w-full h-auto"
+          src="{{ $small.RelPermalink }}"
+          alt="{{ .alt }}"
+        >
+    </a>
     {{ else }}
-      <img src="{{ .src }}" alt="{{ .alt }}">
+    <img class="block max-w-full h-auto" src="{{ .src }}" alt="{{ .alt }}">
     {{ end }}
   </picture>
-{{ else }}
-  <img src="{{ .src }}" alt="{{ .alt }}">
-{{ end }}
+  {{ else }}
+  <img class="block max-w-full h-auto" src="{{ .src }}" alt="{{ .alt }}">
+  {{ end }}

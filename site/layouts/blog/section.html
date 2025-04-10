@@ -1,28 +1,41 @@
+{{/*
+  Layout: blog/section.html
+
+  - Blog archive index view
+  - Includes date, tag list, pagination
+*/}}
+
 {{ define "main" }}
+  {{ partial "page-title.html" . }}
 
-<section class="hero hero--page-header">
-  <div class="hero-body">
-    <p class="title">{{.Title}}</p>
-  </div>
-</section>
-<main class="container my-5 px-4">
-  {{ if .Params.MainImage }}
-    <div class="mb-4">
-      {{ partial "progressive-image.html" (dict "context" . "src" .Params.MainImage "alt" .Title) }}
-    </div>
-  {{ end }}
-  {{ if ne (len .Site.Taxonomies.tags) 0 }}
-    <div class="tags are-large">
-      {{ partial "site-tags" . }}
-    </div>
-  {{ end }}
-  <div class="content">{{ .Content }}</div>
-  <div>
-    {{ range .Paginator.Pages.ByPublishDate.Reverse }}
-      {{ partial "blog-card" . }}
+  <main class="container mx-auto px-4 my-12">
+    {{ if .Params.MainImage }}
+      <div class="mb-6">
+        {{ partial "progressive-image.html" (dict "context" . "src" .Params.MainImage "alt" .Title) }}
+      </div>
     {{ end }}
-  </div>
-  {{- template "_internal/pagination.html" . -}}
-</main>
 
+    {{ if ne (len .Site.Taxonomies.tags) 0 }}
+      <div class="flex flex-wrap gap-2 mb-6">
+        {{ partial "site-tags" . }}
+      </div>
+    {{ end }}
+
+    <div class="prose max-w-none mb-10">
+      {{ .Content }}
+    </div>
+
+    <div class="space-y-6">
+      {{ range .Paginator.Pages.ByPublishDate.Reverse }}
+        <article>
+          {{ partial "blog-card" . }}
+        </article>
+      {{ end }}
+    </div>
+
+    <div class="mt-12">
+      {{ template "_internal/pagination.html" . }}
+    </div>
+  </main>
 {{ end }}
+

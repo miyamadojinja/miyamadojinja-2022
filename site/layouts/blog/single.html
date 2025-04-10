@@ -1,23 +1,33 @@
+{{/*
+  Layout: blog/single.html
+
+  - Renders a single blog post
+  - Includes date and tag display
+  - Optionally shows featured image
+*/}}
+
 {{ define "main" }}
+  {{ partial "page-title.html" . }}
 
-<section class="hero hero--page-header">
-  <div class="hero-body">
-    <p class="title">{{.Title}}</p>
-    <p class="subtitle">
-      <time datetime="{{ . }}">{{ dateFormat "2006/01/02" .Date }}</time>
-      {{ if .Params.Tags }}
-        <span class="ml-3">{{- partial "page-tags.html" . -}}</span>
+  <main class="container mx-auto px-4 my-12">
+    {{ if .Params.MainImage }}
+      <div class="mb-8">
+        {{ partial "progressive-image.html" (dict "context" . "src" .Params.MainImage "alt" .Title) }}
+      </div>
+    {{ end }}
+
+    <div class="text-sm text-gray-600 mb-4 flex flex-wrap gap-2 items-center">
+      {{ partial "date.html" .Date }}
+      {{ with .Params.tags }}
+        {{ range . }}
+          <span class="bg-gray-200 px-2 py-1 rounded text-xs">{{ . }}</span>
+        {{ end }}
       {{ end }}
-    </p>
-  </div>
-</section>
-<main class="container my-5 px-4">
-  {{ if .Params.MainImage }}
-    <div class="mb-4">
-      {{ partial "progressive-image.html" (dict "context" . "src" .Params.MainImage "alt" .Title) }}
     </div>
-  {{ end }}
-  <div class="content">{{ .Content }}</div>
-</main>
 
+    <div class="prose max-w-none">
+      {{ .Content }}
+    </div>
+  </main>
 {{ end }}
+

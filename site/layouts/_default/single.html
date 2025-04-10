@@ -1,17 +1,23 @@
+{{/*
+  Layout: _default/section.html
+
+  - Lists pages in a section (e.g. blog archive, custom sections)
+  - Paginates via `.Paginator.Pages.ByPublishDate.Reverse`
+  - Uses blog-card style layout
+*/}}
+
 {{ define "main" }}
+  {{ partial "page-title.html" . }}
 
-<section class="hero hero--page-header">
-  <div class="hero-body">
-    <p class="title">{{.Title}}</p>
-  </div>
-</section>
-<main class="container my-5 px-4">
-  {{ if .Params.MainImage }}
-    <div class="mb-4">
-      {{ partial "progressive-image.html" (dict "context" . "src" .Params.MainImage "alt" .Title) }}
+  <main class="container mx-auto px-4 my-12">
+    {{ if .Params.MainImage }}
+      <div class="mb-8">
+        {{ partial "progressive-image.html" (dict "context" . "src" .Params.MainImage "alt" .Title) }}
+      </div>
+    {{ end }}
+
+    <div class="prose max-w-none">
+      {{ .Content }}
     </div>
-  {{ end }}
-  <div class="content">{{ .Content }}</div>
-</main>
-
+  </main>
 {{ end }}

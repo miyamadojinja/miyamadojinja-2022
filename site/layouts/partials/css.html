@@ -1,4 +1,13 @@
-<!-- https://gohugo.io/functions/css/tailwindcss/ -->
+{{/*
+  Partial: css.html
+
+  - Builds `assets/css/main.css` using TailwindCSS v4 via Hugo Pipes
+  - Tailwind options: `minify`, `inlineImports`
+
+  Reference:
+    - https://gohugo.io/functions/css/tailwindcss/
+*/}}
+
 {{ with (templates.Defer (dict "key" "global")) }}
   {{ with resources.Get "css/main.css" }}
     {{ $opts := dict

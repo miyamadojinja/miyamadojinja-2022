@@ -1,21 +1,19 @@
-<ul class="columns" style="overflow-x: auto;">
+<ul class="flex gap-6 overflow-x-auto py-4 snap-x snap-mandatory">
   {{ range . }}
-    <li class="column">
-      {{ if .linkUrl }}<a href="{{.linkUrl}}">{{ end }}
-      <div class="card mb-4">
+  <li class="flex-shrink-0 w-80 snap-center">
+    {{ if .linkUrl }}<a href="{{ .linkUrl }}">{{ end }}
+      <div class="bg-white rounded shadow overflow-hidden">
         {{ if .image }}
-          <div class="card-image">
-            <figure class="image">
-              <img src="{{ relURL .image }}">
-            </figure>
-          </div>
+        <div class="aspect-video overflow-hidden">
+          <img src="{{ relURL .image }}" alt="{{ .name }}" class="w-full h-full object-cover">
+        </div>
         {{ end }}
-        <div class="card-content">
-          <h4 class="title is-4">{{ .name }}</h4>
-          <div class="content">{{ .description | markdownify }}</div>
+        <div class="p-4">
+          <h4 class="text-lg font-semibold mb-2">{{ .name }}</h4>
+          <div class="prose text-sm">{{ .description | markdownify }}</div>
         </div>
       </div>
       {{ if .linkUrl }}</a>{{ end }}
-    </li>
+  </li>
   {{ end }}
 </ul>

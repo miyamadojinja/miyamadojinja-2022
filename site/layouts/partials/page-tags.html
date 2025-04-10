@@ -1,19 +1,17 @@
-{{/* https://discourse.gohugo.io/t/list-all-tags-categories/17765 */}}
 {{/*
-  ## Examples
+  Renders page tags as clickable links.
+  Usage:
+    {{ partial "page-tags.html" . }}
 
-  In a page
-
-      {{ partial "page-tags.html" . }}
-
-  */}}
+  Note:
+    Links to tag taxonomy pages, e.g., /tags/shrine/
+*/}}
 
 {{ range $name := .Params.Tags }}
-
-  {{ with $.Site.GetPage (printf "/tags/%s" $name) }}
-    <a href="{{ .RelPermalink }}" class="tag">
-      {{ $name }}
-    </a>
-  {{ end }}
-
+{{ with $.Site.GetPage (printf "/tags/%s" $name) }}
+<a href="{{ .RelPermalink }}"
+       class="inline-block bg-gray-200 px-2 py-1 rounded text-sm hover:bg-gray-300 transition">
+  {{ $name }}
+</a>
+{{ end }}
 {{ end }}

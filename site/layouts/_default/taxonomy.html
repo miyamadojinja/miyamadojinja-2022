@@ -1,25 +1,28 @@
-{{ define "main" }}
-
 {{/*
-  Example URL: /tags/case/
+  Layout: _default/taxonomy.html
+
+  - Renders tag or category listings
+  - Each item links to list of pages by term
+  - Term pages link to content pages
 */}}
 
-<section class="hero hero--page-header">
-  <div class="hero-body">
-    <p class="title">Tag: {{.Title}}</p>
-  </div>
-</section>
-<main class="container my-5 px-4">
-  <div class="content">{{ .Content }}</div>
-  <ul class="mb-4">
-    {{ range .Pages }}
-      <li class="card mb-2">
-        <div class="card-content">
-          <a href="{{ .Permalink }}" class="title is-6">{{ .Title }}</a>
-        </div>
-      </li>
-    {{ end }}
-  </ul>
-</main>
+{{ define "main" }}
+  {{ partial "page-title.html" . }}
 
+  <main class="container mx-auto px-4 my-12">
+    <div class="prose max-w-none mb-10">
+      {{ .Content }}
+    </div>
+    <ul class="space-y-4">
+      {{ range .Pages }}
+        <li>
+          <a href="{{ .Permalink }}" class="block bg-white p-6 shadow rounded hover:shadow-md transition-shadow">
+            <h2 class="text-lg font-semibold">
+              {{ .Title }}
+            </h2>
+          </a>
+        </li>
+      {{ end }}
+    </ul>
+  </main>
 {{ end }}

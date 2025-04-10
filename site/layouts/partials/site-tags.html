@@ -1,11 +1,15 @@
-{{/* https://discourse.gohugo.io/t/list-all-tags-categories/17765 */}}
+{{/*
+  Renders all site tags with post counts.
+  Usage:
+    {{ partial "site-tags.html" . }}
+*/}}
 
-{{ range $name, $taxonomy := .Site.Taxonomies.tags }} {{ $cnt := .Count }}
-
-  {{ with $.Site.GetPage (printf "/tags/%s" $name) }}
-    <a href="{{ .RelPermalink }}" class="tag">
-      {{ $name }}<sub>{{ $cnt }}</sub>
-    </a>
-  {{ end }}
-
+{{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+{{ $cnt := .Count }}
+{{ with $.Site.GetPage (printf "/tags/%s" $name) }}
+<a href="{{ .RelPermalink }}"
+       class="inline-block bg-gray-200 px-2 py-1 rounded text-sm hover:bg-gray-300 transition">
+  {{ $name }}<sub>{{ $cnt }}</sub>
+</a>
+{{ end }}
 {{ end }}
