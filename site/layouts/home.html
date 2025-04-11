@@ -19,14 +19,16 @@
   </section>
   <!-- お知らせ -->
   {{ if .Params.News }}
-  <section class="my-12">
-    <h2 class="text-2xl font-bold mb-4">お知らせ</h2>
-    <div class="bg-blue-50 border border-blue-200 text-blue-800 p-4 rounded">
-      <div class="prose max-w-none">
-        {{ .Params.News | markdownify }}
+    <section class="my-20">
+      <div class="max-w-3xl mx-auto border-s-4 border-red-600 bg-white shadow-sm px-6 py-10 rounded">
+        <h2 class="text-2xl font-bold text-red-800 text-center mb-6 tracking-wide">
+          お知らせ
+        </h2>
+        <div class="prose max-w-none text-gray-800 text-sm md:text-base leading-relaxed prose-img:mx-auto prose-img:rounded prose-img:shadow-md prose-img:max-w-full prose-a:underline hover:prose-a:text-red-600">
+          {{ .Params.News | markdownify }}
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
   {{ end }}
   <!-- ブログ一覧 -->
   <section class="my-12">
@@ -34,18 +36,22 @@
       {{ partial "blog-table" . }}
       {{ $blogPostCount := len (where .Site.RegularPages "Section" "!=" "") }}
       {{ if gt 0 $blogPostCount }}
-      <div class="flex flex-wrap gap-2 text-sm mt-4">
-        <a href="/blog" class="inline-block bg-gray-200 px-3 py-1 rounded">全記事<sub>{{ $blogPostCount }}</sub></a>
-        {{ partial "site-tags" . }}
-      </div>
+        <div class="flex flex-wrap gap-2 text-sm mt-4">
+          <a href="/blog" class="inline-block bg-gray-200 px-3 py-1 rounded">
+            全記事<sub>{{ $blogPostCount }}</sub>
+          </a>
+          {{ partial "site-tags" . }}
+        </div>
       {{ end }}
     </div>
   </section>
   <!-- 境内案内 -->
   <section class="my-12">
-    <h2 class="text-2xl font-bold mb-4">境内案内</h2>
+    <h2 class="text-2xl font-bold mb-4">
+      境内案内
+    </h2>
     {{ if .Params.KeidaiImage }}
-    <img class="mb-6 mx-auto" src="{{ .Params.KeidaiImage }}" alt="境内画像">
+      <img class="mb-6 mx-auto" src="{{ .Params.KeidaiImage }}" alt="境内画像">
     {{ end }}
     <div class="prose max-w-none">
       {{ .Params.keidaiDescription | markdownify }}
@@ -53,7 +59,9 @@
   </section>
   <!-- アクセス -->
   <section class="my-12">
-    <h2 class="text-2xl font-bold mb-4">アクセス</h2>
+    <h2 class="text-2xl font-bold mb-4">
+      アクセス
+    </h2>
     <div class="prose max-w-none mb-6">
       {{ .Params.access1 | markdownify }}
     </div>
