@@ -1,2 +1,30 @@
 @import "tailwindcss";
 @source "hugo_stats.json";
+
+@layer components {
+  /* General image styling */
+  .prose img,
+  .markdown-body img,
+  .content img {
+    @apply mx-auto rounded shadow-md max-w-full h-auto;
+  }
+
+  /* Grouped image grid */
+  .content .image-group,
+  .prose .image-group {
+    @apply flex flex-wrap gap-4 my-8;
+  }
+
+  .content .image-group img,
+  .prose .image-group img {
+    @apply w-full sm:w-1/2 md:w-1/3 h-auto rounded-md shadow;
+  }
+
+  /* Skip decoration if no-decoration class is present */
+  .content img.no-decoration,
+  .prose img.no-decoration,
+  .markdown-body img.no-decoration {
+    @apply m-0 p-0 shadow-none rounded-none;
+  }
+}
+
