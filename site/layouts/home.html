@@ -53,9 +53,7 @@
     {{ if .Params.KeidaiImage }}
       <img class="mb-6 mx-auto" src="{{ .Params.KeidaiImage }}" alt="境内画像">
     {{ end }}
-    <div class="prose max-w-none">
-      {{ .Params.keidaiDescription | markdownify }}
-    </div>
+    {{ partial "keidai-list.html" .Params.keidaiSpots }}
   </section>
   <!-- アクセス -->
   <section class="my-12">

@@ -54,42 +54,75 @@ features:
       節分の日は多くの参拝者で境内は非常に賑わいます。
       この神事は毎年節分の日におこなわれ、『追儺の鬼はらい』として当神社に古くから伝わる厄祓行事です。
 keidaiImage: /img/keidai.png
-keidaiDescription: |
-  洲崎濱宮神明神社海山道開運稲荷神社本殿、
-  (1) 交通安全祈願所、
-  (2) 筆塚、
-  (3) 助四郎社、
-  (4) 大漁社、
-  (5) 八十八社、
-  (6) 八鳥治太夫碑、
-  (7) 報国稲荷社、
-  (8) 狐塚、
-  (9) 招福社、
-  (10) 足留め社、
-  (11) 長谷川社・真弓社、
-  (12) 熊鷹社、
-  (13) 安全社、
-  (14) 橿原神宮遥拝所、
-  (15) 眼鏡塚、
-  (16) 合格社、
-  (17) 助一社、
-  (18) 厄除社、
-  (19) 福寿社、
-  (20) 福徳社、
-  (21) 必勝社、
-  (22) 玉富社、
-  (23) 出世五社伏見社、
-  (24) 成功社、
-  (25) 春熊社、
-  (26) 金生社、
-  (27) 福龍社、
-  (28) 白龍社、
-  (29) 神宮遥拝所、
-  (30) 奉安庫、
-  (31) 靖国神社遥拝所、
-  (32) 納札所、
-  (33) 豆まき舞台、
-  (34) 天神菅原社
+keidaiSpots:
+  - number: 1
+    name: 交通安全祈願所
+  - number: 2
+    name: 筆塚
+  - number: 3
+    name: 助四郎社
+  - number: 4
+    name: 大漁社
+  - number: 5
+    name: 八十八社
+  - number: 6
+    name: 八鳥治太夫碑
+  - number: 7
+    name: 報国稲荷社
+  - number: 8
+    name: 狐塚
+  - number: 9
+    name: 招福社
+  - number: 10
+    name: 足留め社
+  - number: 11
+    name: 長谷川社・真弓社
+  - number: 12
+    name: 熊鷹社
+  - number: 13
+    name: 安全社
+  - number: 14
+    name: 橿原神宮遥拝所
+  - number: 15
+    name: 眼鏡塚
+  - number: 16
+    name: 合格社
+  - number: 17
+    name: 助一社
+  - number: 18
+    name: 厄除社
+  - number: 19
+    name: 福寿社
+  - number: 20
+    name: 福徳社
+  - number: 21
+    name: 必勝社
+  - number: 22
+    name: 玉富社
+  - number: 23
+    name: 出世五社伏見社
+  - number: 24
+    name: 成功社
+  - number: 25
+    name: 春熊社
+  - number: 26
+    name: 金生社
+  - number: 27
+    name: 福龍社
+  - number: 28
+    name: 白龍社
+  - number: 29
+    name: 神宮遥拝所
+  - number: 30
+    name: 奉安庫
+  - number: 31
+    name: 靖国神社遥拝所
+  - number: 32
+    name: 納札所
+  - number: 33
+    name: 豆まき舞台
+  - number: 34
+    name: 天神菅原社
 access1: ""
 access2: |
   ### 近鉄電車でお越しの場合

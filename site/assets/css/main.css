@@ -2,6 +2,7 @@
 @source "hugo_stats.json";
 
 @layer components {
+
   /* General image styling for markdown and content */
   .prose img,
   .markdown-body img,
@@ -41,5 +42,14 @@
   .prose p {
     @apply mb-4;
   }
-}
 
+  .prose ul {
+    @apply list-disc list-inside;
+  }
+
+  @media (min-width: 768px) {
+    .prose ul.keidai-list {
+      @apply columns-2 md:columns-3 gap-6;
+    }
+  }
+}
