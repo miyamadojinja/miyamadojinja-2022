@@ -1,39 +1,32 @@
-<footer class="bg-blue-50 text-gray-700 mt-16 text-sm leading-relaxed">
+<footer class="bg-gradient-to-t from-amber-50/60 to-white/90 text-red-900 backdrop-blur-sm border-t-2 border-red-200 mt-16 text-sm leading-relaxed">
   <!-- Contact Section -->
-  <div class="bg-blue-100 text-blue-900 py-12 px-6 sm:px-8">
+  <div class="py-12 px-6 sm:px-8">
     <h2 class="text-xl font-semibold text-center mb-4 tracking-wide">
       お問い合わせは海山道神社社務所まで
     </h2>
     <address class="not-italic space-y-2 text-center">
       <div>
-        <a href="{{ .Site.Params.officeMapLinkUrl }}" class="underline hover:text-blue-600">
+        <a href="{{ .Site.Params.officeMapLinkUrl }}" class="underline hover:text-red-600">
           {{ .Site.Params.OfficeAddress }}
         </a>
       </div>
       <div>
         TEL
-        <a href="tel:{{ .Site.Params.OfficePhone }}" class="underline hover:text-blue-600">
+        <a href="tel:{{ .Site.Params.OfficePhone }}" class="underline hover:text-red-600">
           {{ .Site.Params.OfficePhone }}
         </a>
       </div>
       <div>
         EMAIL
-        <a href="mailto:{{ .Site.Params.OfficeEmail }}" class="underline hover:text-blue-600">
+        <a href="mailto:{{ .Site.Params.OfficeEmail }}" class="underline hover:text-red-600">
           {{ .Site.Params.OfficeEmail }}
         </a>
       </div>
     </address>
   </div>
 
-  <!-- Logo -->
-  <div class="my-10">
-    <a href="/">
-      <img src="{{ relURL .Site.Params.LogoImage }}" alt="Logo" class="mx-auto max-h-20 opacity-90 hover:opacity-100 transition-opacity">
-    </a>
-  </div>
-
   <!-- Social Links -->
-  <div class="flex justify-center gap-6 mb-10">
+  <div class="flex justify-center gap-6 mb-8">
     <a href="{{ .Site.Params.TwitterUrl }}" class="hover:opacity-80 transition-opacity">
       <img src="/img/twitter.svg" alt="Twitter" class="w-8 h-8">
     </a>
@@ -46,7 +39,8 @@
   </div>
 
   <!-- Copyright -->
-  <div class="pb-8 text-center text-gray-500 text-xs">
+  <div class="pb-8 text-center text-gray-400 text-xs">
     &copy; {{ with .Site.Copyright | default .Site.Title }}{{ . | safeHTML }} {{ now.Format "2006" }}{{ end }}
   </div>
 </footer>
+

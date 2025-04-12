@@ -1,5 +1,5 @@
-<nav class="bg-white border-b border-gray-200">
-  <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+<nav class="absolute inset-x-0 top-0 z-20 bg-white/70 backdrop-blur border-b border-red-200">
+  <div class="h-24 flex items-center justify-between container mx-auto px-4">
     <!-- Logo -->
     <a href="{{ .Site.BaseURL }}" class="flex items-center space-x-2">
       {{ partial "logo" . }}
@@ -23,11 +23,9 @@
     </button>
   </div>
   <!-- Mobile nav dropdown -->
-  <div id="menu"
-       class="hidden flex-col space-y-2 px-4 pb-4 lg:hidden">
+  <div id="menu" class="hidden flex-col space-y-2 px-4 pb-4 lg:hidden">
     {{ range .Site.Menus.main }}
-    <a href="{{ .URL }}"
-         class="block py-2 text-gray-700 hover:text-blue-600 text-center">
+    <a href="{{ .URL }}" class="block py-2 text-gray-700 hover:text-blue-600 text-center">
       {{ .Name }}
     </a>
     {{ end }}

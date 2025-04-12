@@ -1,37 +1,35 @@
 {{ define "main" }}
-<!-- Hero Section -->
-<header class="bg-gray-100">
-  {{ partial "progressive-image.html" (dict "context" . "src" .Params.MainImage "alt" .Title) }}
-  <div class="container mx-auto px-4 py-12">
-    {{ partial "prose-block.html" .Params.Introduction }}
+{{ partial "page-top-spacer.html" . }}
+
+<header class="relative">
+  <div class="relative z-0">
+    {{ partial "progressive-image.html" (dict "context" . "src" .Params.MainImage "alt" .Title) }}
+  </div>
+  <div class="relative z-10 max-w-4xl mx-auto -mt-20 px-6 sm:px-8 lg:px-12">
+    <div class="bg-gradient-to-b from-white/90 to-amber-50/60 backdrop-blur-sm border border-red-100 shadow-md rounded-lg p-6 sm:p-8 md:p-10">
+      {{ partial "prose-block.html" .Params.Introduction }}
+    </div>
   </div>
 </header>
 <main class="container mx-auto px-4">
-  <!-- Main Content -->
   <section class="my-12">
     <img src="/img/miyamadosan.svg" class="mx-auto mb-6 w-64 sm:w-80 md:w-96 no-decoration" alt="みやまどさんのロゴ">
     {{ partial "prose-block.html" .Content }}
   </section>
-  <!-- 祭神 -->
   <section class="my-12">
     {{ partial "card-columns" .Params.Saijin }}
   </section>
-  <!-- 特徴 -->
   <section class="my-12">
     {{ partial "card-columns" .Params.Features }}
   </section>
-  <!-- お知らせ -->
   {{ if .Params.News }}
     <section class="my-20">
-      <div class="max-w-3xl mx-auto border-s-4 border-red-600 bg-white shadow-sm px-6 py-10 rounded">
-        <h2 class="text-2xl font-bold text-red-800 text-center mb-6 tracking-wide">
-          お知らせ
-        </h2>
+      {{ partial "section-title.html" (dict "text" "お知らせ") }}
+      <div class="max-w-3xl mx-auto bg-gradient-to-b from-white/90 to-amber-50/60 backdrop-blur-sm border border-red-100 shadow-md rounded-lg p-6 sm:p-8 md:p-10">
         {{ partial "prose-block.html" .Params.News }}
       </div>
     </section>
   {{ end }}
-  <!-- ブログ一覧 -->
   <section class="my-12">
     <div class="mb-6">
       {{ partial "blog-table" . }}
@@ -46,23 +44,17 @@
       {{ end }}
     </div>
   </section>
-  <!-- 境内案内 -->
   <section class="my-12">
-    <h2 class="text-2xl font-bold mb-4">
-      境内案内
-    </h2>
+    {{ partial "section-title.html" (dict "text" "境内案内") }}
     {{ if .Params.KeidaiImage }}
       <img class="mb-6 mx-auto" src="{{ .Params.KeidaiImage }}" alt="境内画像">
     {{ end }}
     {{ partial "keidai-list.html" .Params.keidaiSpots }}
   </section>
-  <!-- 交通のご案内 -->
   <section class="my-12">
-    <h2 class="text-2xl font-bold mb-4 text-center">
-      交通のご案内
-    </h2>
+    {{ partial "section-title.html" (dict "text" "交通のご案内") }}
     <iframe class="w-full h-[450px] mb-6" src="{{ .Site.Params.officeMapIframeUrl }}" frameborder="0"></iframe>
-    <div class="max-w-3xl mx-auto bg-blue-50 border-l-4 border-blue-400 p-6 rounded-lg shadow-sm mb-6">
+    <div class="max-w-3xl mx-auto bg-gradient-to-b from-white/90 to-amber-50/60 backdrop-blur-sm border border-red-100 shadow-md rounded-lg p-6 sm:p-8 md:p-10 mb-6">
       {{ partial "prose-block.html" .Params.transportation }}
     </div>
   </section>

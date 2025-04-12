@@ -7,7 +7,11 @@
 */}}
 
 {{ define "main" }}
+
+{{ partial "page-top-spacer.html" . }}
+
 {{ partial "page-title.html" . }}
+
 <main class="container px-4 mb-12">
   {{ if .Params.MainImage }}
   <div class="mb-6">
