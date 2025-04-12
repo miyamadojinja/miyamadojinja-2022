@@ -11,6 +11,7 @@
 <main class="container mx-auto px-4">
   <!-- Main Content -->
   <section class="my-12 prose max-w-none">
+    <img src="/img/miyamadosan.svg" class="no-decoration" alt="みやまどさんのロゴ">
     {{ .Content }}
   </section>
   <!-- 祭神 -->
@@ -59,17 +60,16 @@
     {{ end }}
     {{ partial "keidai-list.html" .Params.keidaiSpots }}
   </section>
-  <!-- アクセス -->
+  <!-- 交通のご案内 -->
   <section class="my-12">
-    <h2 class="text-2xl font-bold mb-4">
-      アクセス
+    <h2 class="text-2xl font-bold mb-4 text-center">
+      交通のご案内
     </h2>
-    <div class="prose max-w-none mb-6">
-      {{ .Params.access1 | markdownify }}
-    </div>
     <iframe class="w-full h-[450px] mb-6" src="{{ .Site.Params.officeMapIframeUrl }}" frameborder="0"></iframe>
-    <div class="prose max-w-none">
-      {{ .Params.access2 | markdownify }}
+    <div class="max-w-3xl mx-auto bg-blue-50 border-l-4 border-blue-400 p-6 rounded-lg shadow-sm mb-6">
+      <div class="prose max-w-none text-gray-800 text-sm md:text-base leading-relaxed">
+        {{ .Params.transportation | markdownify }}
+      </div>
     </div>
   </section>
   <!-- Netlify CMS Redirect Script -->
