@@ -3,16 +3,14 @@
 <header class="bg-gray-100">
   {{ partial "progressive-image.html" (dict "context" . "src" .Params.MainImage "alt" .Title) }}
   <div class="container mx-auto px-4 py-12">
-    <div class="prose max-w-none">
-      {{ .Params.Introduction | markdownify }}
-    </div>
+    {{ partial "prose-block.html" .Params.Introduction }}
   </div>
 </header>
 <main class="container mx-auto px-4">
   <!-- Main Content -->
-  <section class="my-12 prose max-w-none">
-<img src="/img/miyamadosan.svg" class="mx-auto mb-6 w-64 sm:w-80 md:w-96 no-decoration" alt="みやまどさんのロゴ">
-    {{ .Content }}
+  <section class="my-12">
+    <img src="/img/miyamadosan.svg" class="mx-auto mb-6 w-64 sm:w-80 md:w-96 no-decoration" alt="みやまどさんのロゴ">
+    {{ partial "prose-block.html" .Content }}
   </section>
   <!-- 祭神 -->
   <section class="my-12">
@@ -29,9 +27,7 @@
         <h2 class="text-2xl font-bold text-red-800 text-center mb-6 tracking-wide">
           お知らせ
         </h2>
-        <div class="prose max-w-none text-gray-800 text-sm md:text-base leading-relaxed prose-img:mx-auto prose-img:rounded prose-img:shadow-md prose-img:max-w-full prose-a:underline hover:prose-a:text-red-600">
-          {{ .Params.News | markdownify }}
-        </div>
+        {{ partial "prose-block.html" .Params.News }}
       </div>
     </section>
   {{ end }}
@@ -67,9 +63,7 @@
     </h2>
     <iframe class="w-full h-[450px] mb-6" src="{{ .Site.Params.officeMapIframeUrl }}" frameborder="0"></iframe>
     <div class="max-w-3xl mx-auto bg-blue-50 border-l-4 border-blue-400 p-6 rounded-lg shadow-sm mb-6">
-      <div class="prose max-w-none text-gray-800 text-sm md:text-base leading-relaxed">
-        {{ .Params.transportation | markdownify }}
-      </div>
+      {{ partial "prose-block.html" .Params.transportation }}
     </div>
   </section>
   <!-- Netlify CMS Redirect Script -->

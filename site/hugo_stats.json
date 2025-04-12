@@ -81,6 +81,7 @@
       "hidden",
       "hover:opacity-100",
       "hover:opacity-80",
+      "hover:prose-a:text-blue-600",
       "hover:prose-a:text-red-600",
       "hover:shadow-lg",
       "hover:text-blue-600",
