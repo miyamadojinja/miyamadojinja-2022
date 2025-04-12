@@ -1,7 +1,7 @@
 {{/*
   Partial: card-columns.html
 
-  Renders a responsive grid of content cards.
+  Renders a responsive grid of content cards that are centered on the page.
 
   Each item may include:
     - name (required): title text
@@ -13,9 +13,9 @@
     {{ partial "card-columns.html" . }}
 */}}
 
-<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+<div class="flex flex-wrap justify-center gap-6">
   {{ range . }}
-    <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+    <div class="w-80 bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
       {{ if .linkUrl }}
         <a href="{{ .linkUrl }}" class="block h-full">
       {{ end }}
@@ -43,3 +43,4 @@
     </div>
   {{ end }}
 </div>
+

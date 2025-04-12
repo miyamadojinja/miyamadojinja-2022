@@ -89,6 +89,7 @@
       "items-start",
       "justify-between",
       "justify-center",
+      "justify-items-center",
       "keidai-list",
       "leading-relaxed",
       "lg:flex",
