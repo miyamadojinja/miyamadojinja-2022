@@ -31,6 +31,10 @@
     </section>
   {{ end }}
   <section class="my-12">
+    {{ partial "section-title.html" (dict "text" "厄年") }}
+    {{ partial "yakudoshi-table.html" .Params.yakudoshi }}
+  </section>
+  <section class="my-12">
     <div class="mb-6">
       {{ partial "blog-table" . }}
       {{ $blogPostCount := len (where .Site.RegularPages "Section" "!=" "") }}
