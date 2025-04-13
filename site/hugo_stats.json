@@ -45,6 +45,7 @@
     "classes": [
       "-mt-16",
       "absolute",
+      "aspect-[3/4]",
       "aspect-video",
       "backdrop-blur",
       "backdrop-blur-sm",
@@ -116,7 +117,6 @@
       "md:text-base",
       "md:w-96",
       "mt-12",
-      "mt-16",
       "mt-2",
       "mt-24",
       "mx-auto",

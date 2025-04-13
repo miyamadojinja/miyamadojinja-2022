@@ -12,32 +12,39 @@
 
 {{ partial "page-title.html" . }}
 
-<main class="container px-4 mb-12">
+<main class="container mx-auto px-4 my-12">
   {{ if .Params.MainImage }}
-  <div class="mb-6">
-    {{ partial "progressive-image.html" (dict "context" . "src" .Params.MainImage "alt" .Title) }}
-  </div>
+    <div class="mb-6">
+      {{ partial "progressive-image.html" (dict "context" . "src" .Params.MainImage "alt" .Title) }}
+    </div>
   {{ end }}
+
   <div class="prose max-w-none mb-8">
     {{ .Content }}
   </div>
+
   {{ if .Params.ofudaCollection }}
-  <section class="mb-10">
-    <h2 class="text-xl font-semibold mb-2">おふだ</h2>
-    <div class="prose max-w-none mb-4">
-      {{ .Params.ofudaDescription | markdownify }}
-    </div>
-    {{ partial "card-flex-wrap" .Params.ofudaCollection }}
-  </section>
+    <section class="mb-10">
+      <h2 class="text-xl font-semibold mb-2">
+        おふだ
+      </h2>
+      <div class="prose max-w-none mb-4">
+        {{ .Params.ofudaDescription | markdownify }}
+      </div>
+      {{ partial "card-flex-wrap" .Params.ofudaCollection }}
+    </section>
   {{ end }}
+
   {{ if .Params.omamoriCollection }}
-  <section class="mb-10">
-    <h2 class="text-xl font-semibold mb-2">お守り</h2>
-    <div class="prose max-w-none mb-4">
-      {{ .Params.omamoriDescription | markdownify }}
-    </div>
-    {{ partial "card-flex-wrap" .Params.omamoriCollection }}
-  </section>
+    <section class="mb-10">
+      <h2 class="text-xl font-semibold mb-2">
+        お守り
+      </h2>
+      <div class="prose max-w-none mb-4">
+        {{ .Params.omamoriDescription | markdownify }}
+      </div>
+      {{ partial "card-flex-wrap" .Params.omamoriCollection }}
+    </section>
   {{ end }}
 </main>
 {{ end }}
