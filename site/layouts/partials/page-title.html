@@ -15,18 +15,18 @@
     - Uses `partials/date.html` and `partials/page-tags.html`
 */}}
 
-<section class="relative py-12 border-t-2 border-red-600 bg-amber-50/70 backdrop-blur-sm shadow-sm">
+<section class="relative py-12 mb-12 border-t-2 border-red-600 bg-amber-50/70 backdrop-blur-sm shadow-sm">
   <div class="container mx-auto px-4">
-    <h1 class="text-3xl sm:text-4xl font-bold text-center text-red-800 tracking-wider mb-2">
+    <h1 class="text-3xl sm:text-4xl font-bold leading-tight sm:leading-snug text-center text-red-800 tracking-wider mb-4">
       {{ .Title }}
     </h1>
     {{ with .Params.Date }}
-      <p class="text-sm text-center text-gray-500">
+      <p class="text-sm text-center text-gray-500 mt-2 mb-2">
         {{ partial "date.html" . }}
       </p>
     {{ end }}
     {{ with .Params.Tags }}
-      <div class="mt-4 flex justify-center flex-wrap gap-2">
+      <div class="mt-6 flex justify-center flex-wrap gap-2">
         {{ partial "page-tags.html" . }}
       </div>
     {{ end }}
