@@ -1,83 +1,90 @@
 {{ define "main" }}
+  {{ partial "page-top-spacer.html" . }}
 
-<header class="hero introduction">
-  {{ partial "progressive-image.html" (dict "context" . "src" .Params.MainImage "alt" .Title) }}
-  <div class="hero-body">
-    <div class="content">
-      {{ .Params.Introduction | markdownify }}
+  <header class="relative">
+    <div class="relative z-0">
+      {{ partial "progressive-image.html" (dict "context" . "src" .Params.MainImage "alt" .Title) }}
     </div>
-  </div>
-</header>
-<main class="container px-4 mb-6">
-  <section class="section">
-    <span class="content">
-      {{ .Content }}
-    </span>
-  </section>
-  <section class="section px-0 saijin">
-    {{ partial "card-columns" .Params.Saijin }}
-  </section>
-  {{ if .Params.News }}
-  <section class="section px-0 oshirase">
-    <h2 class="title is-2">お知らせ</h2>
-    <div class="notification is-info is-light" >
-      <div class="content">
-        {{ .Params.News | markdownify }}
+    <div class="relative z-10 max-w-4xl mx-auto -mt-16 sm:-mt-20 px-6 sm:px-8 lg:px-12">
+      <div class="bg-gradient-to-b from-white/90 to-amber-50/60 backdrop-blur-sm border border-red-100 shadow-md rounded-lg p-6 sm:p-8 md:p-10">
+        {{ partial "prose-block.html" .Params.Introduction }}
       </div>
     </div>
-  </section>
-  {{ end }}
-  <section class="blog-table">
-    <div class="mb-5">
-      {{ partial "blog-table" . }}
-      {{ $blogPostCount := len (where .Site.RegularPages "Section" "!=" "") }}
-      {{ if gt 0 $blogPostCount }}
-      <div class="tags">
-        <a href="/blog" class="tag">全記事<sub>{{ $blogPostCount }}</sub></a>
-        {{ partial "site-tags" . }}
-      </div>
-      {{ end }}
-    </div>
-  </section>
-  <section class="section px-0 features">
-    {{ partial "card-columns" .Params.Features }}
-  </section>
-  <section class="section px-0 keidai">
-    <h2 class="title is-2">境内案内</h2>
-    {{ if .Params.KeidaiImage }}
-    <img class="mb-5" src="{{ .Params.KeidaiImage }}">
+  </header>
+
+  <main class="container mx-auto px-4">
+    <section class="my-20">
+      <img src="/img/miyamadosan.svg" class="mx-auto mb-8 w-64 sm:w-80 md:w-96 no-decoration" alt="みやまどさんのロゴ">
+      {{ partial "prose-block.html" .Content }}
+    </section>
+
+    {{ if .Params.News }}
+      <section class="my-20">
+        {{ partial "section-title.html" (dict "text" "お知らせ") }}
+        <div class="max-w-3xl mx-auto bg-gradient-to-b from-white/90 to-amber-50/60 backdrop-blur-sm border border-red-100 shadow-md rounded-lg p-6 sm:p-8 md:p-10">
+          {{ partial "prose-block.html" .Params.News }}
+        </div>
+      </section>
     {{ end }}
-    <div class="content">
-      {{ .Params.keidaiDescription | markdownify }}
-    </div>
-  </section>
-  <section class="section px-0 access">
-    <h2 class="title is-2">アクセス</h2>
-    <div class="content">
-      {{ .Params.access1 | markdownify }}
-    </div>
-    <iframe class="mb-5" src="{{ .Site.Params.officeMapIframeUrl }}" width="100%" height="450"
-      frameborder="0"></iframe>
-    <div class="content">
-      {{ .Params.access2 | markdownify }}
-    </div>
-  </section>
 
-  {{/*
-    Netlify CMS
-    - https://www.netlifycms.org/docs/add-to-your-site/#add-the-netlify-identity-widget
-  */}}
-  <script>
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("init", user => {
-        if (!user) {
-          window.netlifyIdentity.on("login", () => {
-            document.location.href = "/admin/";
-          });
-        }
-      });
-    }
-  </script>
-</main>
+    <section class="my-20">
+      {{ partial "card-columns" .Params.Saijin }}
+    </section>
 
+    <section class="my-20">
+      {{ partial "card-columns" .Params.Features }}
+    </section>
+
+    <section class="my-20">
+      {{ partial "section-title.html" (dict "text" "厄年") }}
+      {{ partial "yakudoshi-table.html" .Params.yakudoshi }}
+    </section>
+
+    {{ $recentPosts := where .Site.RegularPages "Section" "blog" }}
+    {{ $postCount := len $recentPosts }}
+    {{ if gt $postCount 0 }}
+      <section class="my-20">
+        {{ partial "section-title.html" (dict "text" "ブログ") }}
+        <div class="prose max-w-3xl mx-auto bg-gradient-to-b from-white/90 to-amber-50/60 backdrop-blur-sm border border-red-100 shadow-md rounded-lg p-6 sm:p-8 md:p-10">
+          {{ partial "blog-table.html" . }}
+
+          <div class="flex flex-wrap justify-between items-center mt-6 text-sm gap-y-2">
+            <a href="/blog">
+              全記事を見る（{{ $postCount }} 件）
+            </a>
+            {{ partial "site-tags" . }}
+          </div>
+        </div>
+      </section>
+    {{ end }}
+
+    <section class="my-20">
+      {{ partial "section-title.html" (dict "text" "境内案内") }}
+      {{ if .Params.KeidaiImage }}
+        <img class="mb-6 mx-auto" src="{{ .Params.KeidaiImage }}" alt="境内画像">
+      {{ end }}
+      {{ partial "keidai-list.html" .Params.keidaiSpots }}
+    </section>
+
+    <section class="my-20">
+      {{ partial "section-title.html" (dict "text" "交通のご案内") }}
+      <iframe class="w-full h-[450px] mb-6" src="{{ .Site.Params.officeMapIframeUrl }}" frameborder="0"></iframe>
+      <div class="max-w-3xl mx-auto bg-gradient-to-b from-white/90 to-amber-50/60 backdrop-blur-sm border border-red-100 shadow-md rounded-lg p-6 sm:p-8 md:p-10 mb-6">
+        {{ partial "prose-block.html" .Params.transportation }}
+      </div>
+    </section>
+
+    <!-- Netlify CMS Redirect Script -->
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
+  </main>
 {{ end }}

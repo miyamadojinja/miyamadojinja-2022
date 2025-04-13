@@ -1,16 +1,23 @@
-<a href="{{ .RelPermalink }}">
-  <article class="card mb-4">
-    <div class="card-content">
-      <p>
-        <span class="has-text-grey">{{- partial "date.html" .Date -}}</span>
-        <strong class="ml-3">{{ .Title }}</strong>
-        {{ if ne .Params.tags nil }}
-          <span class="ml-3">
-            {{/* Nested links wont work for some reason */}}
-            {{ range .Params.tags }}<span class="tag mr-1">{{- . -}}</span>{{ end }}
+<a href="{{ .RelPermalink }}" class="block group">
+  <article class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm group-hover:shadow-md transition-shadow duration-200">
+    <p class="text-sm text-gray-500 mb-1">
+      {{ partial "date.html" .Date }}
+    </p>
+    <h2 class="text-lg font-semibold text-gray-800 group-hover:text-blue-700 transition-colors duration-150">
+      {{ .Title }}
+    </h2>
+    {{ with .Summary }}
+      <p class="text-gray-700 text-sm mt-2 line-clamp-3">{{ . }}</p>
+    {{ end }}
+    {{ with .Params.tags }}
+      <div class="flex flex-wrap gap-2 mt-3 text-xs">
+        {{ range . }}
+          <span class="inline-block bg-gray-100 text-gray-700 px-2 py-1 rounded">
+            {{ . }}
           </span>
         {{ end }}
-      </p>
-    </div>
+      </div>
+    {{ end }}
   </article>
 </a>
+

@@ -1,7 +1,50 @@
 <!doctype html>
 <html lang="{{ $.Site.LanguageCode | default "en" }}">
-  {{ partial "head" . }}
+  <head>
+    <title>
+      {{- if and .Params.Title (not (eq .Params.Title .Site.Title)) -}}
+        {{ .Params.Title }} | {{ .Site.Title }}
+      {{- else -}}
+        {{ .Site.Title }}
+      {{- end -}}
+    </title>
 
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#42a7c6">
+    {{ template "_internal/twitter_cards.html" . }}
+    {{ template "_internal/opengraph.html" . }}
+
+    <link rel="shortcut icon" type="image/png" href="{{ relURL "img/favicon.ico" }}">
+
+    {{/* https://gohugo.io/functions/css/tailwindcss/ */}}
+    {{ partialCached "css.html" . }}
+
+    {{/* https://gohugo.io/hugo-pipes/js */}}
+    {{ if hugo.IsServer }}
+      {{ $script := resources.Get "js/main.js" | js.Build }}
+      <script src="{{ $script.RelPermalink }}"></script>
+    {{ else }}
+      {{ $script := resources.Get "js/main.js" | js.Build | minify | fingerprint }}
+      <script src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity }}"></script>
+    {{ end }}
+
+    {{/*
+      Netlify CMS
+      - https://www.netlifycms.org/docs/add-to-your-site/#add-the-netlify-identity-widget
+    */}}
+    {{ if .IsHome }}
+      <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    {{ end }}
+
+    {{/*
+      progressive-image.js
+      - https://github.com/craigbuckler/progressive-image.js
+    */}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/progressive-image.js/dist/progressive-image.css">
+    <script src="https://cdn.jsdelivr.net/npm/progressive-image.js/dist/progressive-image.js" async></script>
+  </head>
   <body data-type="{{.Type}}" data-kind="{{.Kind}}" data-is-home="{{.IsHome}}">
     {{ block "header" . }}{{ partial "site-header" . }}{{end}}
 

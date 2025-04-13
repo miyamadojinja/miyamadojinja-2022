@@ -11,8 +11,10 @@ mainImage: '/img/setsubun-091.jpg'
 1. 狐の嫁入り神事の他に節分の日には合計4回の豆まきがあります。
 1. 厄年の方の豆まき奉仕者を受付しております。（詳細は社務所までお問い合わせください）
 
+{{< imagegrid >}}
 ![](/img/setsubun-004.jpg)
 ![](/img/setsubun-101.jpg)
 ![](/img/setsubun-102.jpg)
 ![](/img/setsubun-104.jpg)
 ![](/img/setsubun-105.jpg)
+{{< /imagegrid >}}

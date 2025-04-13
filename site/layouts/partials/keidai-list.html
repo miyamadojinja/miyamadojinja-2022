@@ -1,0 +1,26 @@
+{{/*
+  Partial: keidai-list.html
+
+  Purpose:
+    Displays a numbered list of 境内 (Keidai) spots in a responsive grid.
+    Each item shows its number and name.
+
+  Usage:
+    {{ partial "keidai-list.html" .Params.keidaiSpots }}
+
+  Dependencies:
+    - Expects a slice of maps with `number` and `name` keys
+*/}}
+
+<ul class="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+  {{ range . }}
+    <li class="flex items-start gap-3">
+      <span class="text-white bg-red-700 rounded-full px-3 py-1 text-sm font-semibold">
+        {{ .number }}
+      </span>
+      <span class="text-gray-800 text-base">
+        {{ .name }}
+      </span>
+    </li>
+  {{ end }}
+</ul>

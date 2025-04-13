@@ -1,30 +1,38 @@
-{{ define "main" }}
-
 {{/*
-  Example URL: /tags/
+  Layout: _default/terms.html
+
+  - Renders tag or category listings
+  - Each item links to list of pages by term
+  - Term pages link to content pages
 */}}
 
-<section class="hero hero--page-header">
-  <div class="hero-body">
-    <p class="title">{{.Title}}</p>
-  </div>
-</section>
-<main class="container my-5 px-4">
-  <div class="content">{{ .Content }}</div>
-  {{ range $key, $value := .Data.Terms }}
-    <a href="{{ "/" | relLangURL }}{{ $.Data.Plural | urlize }}/{{ $key | urlize }}">
-      <h2 class="title is-4 mb-4">{{ $.Data.Singular | humanize }}: {{ $key }}</h2>
-    </a>
-    <ul class="mb-4">
-      {{ range $value.Pages }}
-        <li class="card mb-2">
-          <div class="card-content">
-            <a href="{{ .Permalink }}" class="title is-6">{{ .Title }}</a>
-          </div>
-        </li>
-      {{ end }}
-    </ul>
-  {{ end }}
-</main>
+{{ define "main" }}
+  {{ partial "page-top-spacer.html" . }}
+  {{ partial "page-title.html" . }}
 
+  <main class="container mx-auto px-4 my-12">
+    <div class="prose max-w-none mb-10">
+      {{ .Content }}
+    </div>
+    {{ range $key, $value := .Data.Terms }}
+      <div class="mb-8">
+        <a href="{{ "/" | relLangURL }}{{ $.Data.Plural | urlize }}/{{ $key | urlize }}">
+          <h2 class="text-2xl font-semibold text-blue-700 hover:underline">
+            {{ $.Data.Singular | humanize }}: {{ $key }}
+          </h2>
+        </a>
+        <ul class="mt-4 space-y-3">
+          {{ range $value.Pages }}
+          <li>
+            <a href="{{ .Permalink }}" class="block bg-white p-4 shadow rounded hover:shadow-md transition-shadow">
+              <h3 class="text-lg font-medium">
+                {{ .Title }}
+              </h3>
+            </a>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+    {{ end }}
+  </main>
 {{ end }}

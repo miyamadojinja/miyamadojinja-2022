@@ -1,19 +1,25 @@
-{{/* https://discourse.gohugo.io/t/list-all-tags-categories/17765 */}}
 {{/*
-  ## Examples
+  Partial: page-tags.html
+  Renders page tags as clickable links.
+  Can accept either:
+    - A full Page context (with .Params.tags)
+    - A raw slice of strings ([]string)
+*/}}
 
-  In a page
+{{ $tags := slice }}
 
-      {{ partial "page-tags.html" . }}
+{{ if reflect.IsSlice . }}
+  {{ $tags = . }}
+{{ else if .Params.tags }}
+  {{ $tags = .Params.tags }}
+{{ end }}
 
-  */}}
-
-{{ range $name := .Params.Tags }}
-
-  {{ with $.Site.GetPage (printf "/tags/%s" $name) }}
-    <a href="{{ .RelPermalink }}" class="tag">
+{{ range $name := $tags }}
+  {{ with site.GetPage (printf "/tags/%s" (urlize $name)) }}
+    <a href="{{ .RelPermalink }}"
+       class="inline-block bg-gray-200 px-2 py-1 rounded text-sm hover:bg-gray-300 transition">
       {{ $name }}
     </a>
   {{ end }}
-
 {{ end }}
+

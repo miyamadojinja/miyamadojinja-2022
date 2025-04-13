@@ -1,19 +1,46 @@
-<ul class="is-flex is-flex-wrap-wrap is-justify-content-center">
+{{/*
+  Partial: card-flex-wrap.html
+
+  Purpose:
+    Renders a responsive grid of content cards with images and descriptions.
+    The images are displayed with a 3:4 aspect ratio for better vertical alignment.
+
+  Usage:
+    {{ partial "card-flex-wrap" .Params.ofudaCollection }}
+    {{ partial "card-flex-wrap" .Params.omamoriCollection }}
+
+  Dependencies:
+    - Expects `.image`, `.name`, and `.description` to be present in context
+    - Optionally includes a `.linkUrl` to wrap the card with a link
+*/}}
+
+<ul class="flex flex-wrap justify-center gap-6">
   {{ range . }}
-    <li class="m-2">
-      {{ if .linkUrl }}<a href="{{.linkUrl}}">{{ end }}
-      <div class="card mb-4" style="max-width: 20rem">
-        <div class="card-image">
-          <figure class="image">
-            <img src="{{ relURL .image }}">
-          </figure>
-        </div>
-        <div class="card-content">
-          <h4 class="title is-4">{{ .name }}</h4>
-          <div class="content">{{ .description | markdownify }}</div>
+    <li class="w-80 h-full">
+      {{ if .linkUrl }}
+        <a href="{{ .linkUrl }}">
+      {{ end }}
+
+      <div class="bg-white rounded shadow hover:shadow-lg transition-shadow overflow-hidden">
+        {{ if .image }}
+          <div class="aspect-[3/4] overflow-hidden">
+            <img src="{{ relURL .image }}" alt="{{ .name }}" class="w-full h-full object-cover">
+          </div>
+        {{ end }}
+
+        <div class="p-4">
+          <h4 class="text-lg font-semibold mb-2">
+            {{ .name }}
+          </h4>
+          <div class="prose text-sm">
+            {{ .description | markdownify }}
+          </div>
         </div>
       </div>
-      {{ if .linkUrl }}</a>{{ end }}
+
+      {{ if .linkUrl }}
+        </a>
+      {{ end }}
     </li>
   {{ end }}
 </ul>

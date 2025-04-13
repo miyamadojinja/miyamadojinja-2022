@@ -1,0 +1,73 @@
+{{/*
+  Partial: yakudoshi-table.html
+
+  - Renders a 厄年 (yakudoshi) age table with separate rows for 男 (men) and 女 (women)
+  - Preserves traditional table formatting with Tailwind classes for borders, alignment, and caption
+  - All table content is passed in via `dict` arguments:
+    - `caption`: Text shown beneath the table
+    - `men`: Slice of row slices for male entries (e.g., 前厄〜後厄, year, age)
+    - `women`: Slice of row slices for female entries
+
+  Example usage:
+
+    {{ partial "yakudoshi-table.html" (dict
+      "caption" "厄除祈祷は毎日ご奉仕しております。（年齢はかぞえ年）"
+      "men" (slice
+        (slice "前厄" "昭和 60 年生 (41才)" "平成 14 年生 (24才)")
+        (slice "本厄" "昭和 59 年生 (42才)" "平成 13 年生 (25才)")
+        (slice "後厄" "昭和 58 年生 (43才)" "平成 12 年生 (26才)")
+      )
+      "women" (slice
+        (slice "前厄" "平成 6 年生 (32才)" "平成 20 年生 (18才)")
+        (slice "本厄" "平成 5 年生 (33才)" "平成 19 年生 (19才)")
+        (slice "後厄" "平成 4 年生 (34才)" "平成 18 年生 (20才)")
+      )
+    ) }}
+
+*/}}
+
+<div class="max-w-3xl mx-auto prose text-sm">
+  <table class="w-full table-auto border border-collapse border-gray-300">
+    {{ with .caption }}
+      <caption class="caption-bottom text-left text-gray-700 mt-2">
+        {{ . }}
+      </caption>
+    {{ end }}
+
+    <tbody>
+      {{ with .men }}
+        {{ range $i, $row := . }}
+          <tr class="text-center">
+            {{ if eq $i 0 }}
+              <th class="bg-gray-100 border border-gray-300 px-2 py-1" rowspan="{{ len $.men }}">
+                男
+              </th>
+            {{ end }}
+            {{ range $cell := $row }}
+              <td class="border border-gray-300 px-2 py-1">
+                {{ $cell }}
+              </td>
+            {{ end }}
+          </tr>
+        {{ end }}
+      {{ end }}
+
+      {{ with .women }}
+        {{ range $i, $row := . }}
+          <tr class="text-center">
+            {{ if eq $i 0 }}
+              <th class="bg-gray-100 border border-gray-300 px-2 py-1" rowspan="{{ len $.women }}">
+                女
+              </th>
+            {{ end }}
+            {{ range $cell := $row }}
+              <td class="border border-gray-300 px-2 py-1">
+                {{ $cell }}
+              </td>
+            {{ end }}
+          </tr>
+        {{ end }}
+      {{ end }}
+    </tbody>
+  </table>
+</div>

@@ -1,25 +1,54 @@
-{{ define "main" }}
-
 {{/*
-  Example URL: /tags/case/
+  Layout: _default/taxonomy.html
+
+  Purpose:
+    Renders individual taxonomy term pages (e.g., tag pages like /tags/foo/).
+    Lists all pages associated with a given term, sorted by publish date.
+
+  Usage:
+    Automatically used for any taxonomy term, such as tags or categories.
 */}}
 
-<section class="hero hero--page-header">
-  <div class="hero-body">
-    <p class="title">Tag: {{.Title}}</p>
-  </div>
-</section>
-<main class="container my-5 px-4">
-  <div class="content">{{ .Content }}</div>
-  <ul class="mb-4">
-    {{ range .Pages }}
-      <li class="card mb-2">
-        <div class="card-content">
-          <a href="{{ .Permalink }}" class="title is-6">{{ .Title }}</a>
-        </div>
-      </li>
-    {{ end }}
-  </ul>
-</main>
+{{ define "main" }}
+  {{ partial "page-top-spacer.html" . }}
+  {{ partial "page-title.html" . }}
 
+  <main class="container mx-auto px-4 my-12">
+    <div class="prose max-w-none mb-10">
+      {{ .Content }}
+    </div>
+
+    {{ if .Pages }}
+      <ul class="space-y-6">
+        {{ range .Pages.ByPublishDate.Reverse }}
+          <li>
+            <a href="{{ .Permalink }}" class="block bg-white p-6 rounded shadow hover:shadow-md transition-shadow">
+              <h2 class="text-xl font-semibold mb-1 text-gray-800 hover:text-blue-700">
+                {{ .Title }}
+              </h2>
+              <div class="text-sm text-gray-600 mb-2">
+                {{ partial "date.html" .Date }}
+              </div>
+              {{ with .Params.tags }}
+                <div class="flex flex-wrap gap-2 text-xs">
+                  {{ range . }}
+                    <span class="bg-gray-200 px-2 py-1 rounded">{{ . }}</span>
+                  {{ end }}
+                </div>
+              {{ end }}
+            </a>
+          </li>
+        {{ end }}
+      </ul>
+    {{ else }}
+      <p class="text-gray-600 text-sm">このタグに関連する記事はまだありません。</p>
+    {{ end }}
+
+    <div class="mt-12 text-center">
+      <a href="/blog" class="text-blue-600 underline hover:text-blue-800">
+        ブログ一覧に戻る
+      </a>
+    </div>
+  </main>
 {{ end }}
+

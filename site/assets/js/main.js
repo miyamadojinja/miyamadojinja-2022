@@ -1,3 +1,1 @@
-import Navbar from './navbar'
-
-Navbar.init()
+console.log("main.js loaded");

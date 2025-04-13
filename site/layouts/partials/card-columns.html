@@ -1,21 +1,46 @@
-<ul class="columns" style="overflow-x: auto;">
+{{/*
+  Partial: card-columns.html
+
+  Renders a responsive grid of content cards that are centered on the page.
+
+  Each item may include:
+    - name (required): title text
+    - description (optional): Markdown content
+    - image (optional): displayed at top
+    - linkUrl (optional): wraps entire card
+
+  Usage:
+    {{ partial "card-columns.html" . }}
+*/}}
+
+<div class="flex flex-wrap justify-center gap-6">
   {{ range . }}
-    <li class="column">
-      {{ if .linkUrl }}<a href="{{.linkUrl}}">{{ end }}
-      <div class="card mb-4">
-        {{ if .image }}
-          <div class="card-image">
-            <figure class="image">
-              <img src="{{ relURL .image }}">
-            </figure>
+    <div class="w-80 bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+      {{ if .linkUrl }}
+        <a href="{{ .linkUrl }}" class="block h-full">
+      {{ end }}
+
+      {{ if .image }}
+        <div class="aspect-video overflow-hidden">
+          <img src="{{ relURL .image }}" alt="{{ .name }}" class="w-full h-full object-cover">
+        </div>
+      {{ end }}
+
+      <div class="p-4">
+        <h3 class="text-lg font-semibold mb-2 text-gray-800">
+          {{ .name }}
+        </h3>
+        {{ with .description }}
+          <div class="prose prose-sm text-gray-700 leading-relaxed">
+            {{ . | markdownify }}
           </div>
         {{ end }}
-        <div class="card-content">
-          <h4 class="title is-4">{{ .name }}</h4>
-          <div class="content">{{ .description | markdownify }}</div>
-        </div>
       </div>
-      {{ if .linkUrl }}</a>{{ end }}
-    </li>
+
+      {{ if .linkUrl }}
+        </a>
+      {{ end }}
+    </div>
   {{ end }}
-</ul>
+</div>
+

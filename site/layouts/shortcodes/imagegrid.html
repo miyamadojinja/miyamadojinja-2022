@@ -1,0 +1,14 @@
+{{/*
+  imagegrid shortcode
+  Renders consecutive Markdown images as a responsive grid.
+
+  Usage:
+  {{< imagegrid >}}
+  ![](/img/one.jpg)
+  ![](/img/two.jpg)
+  {{< /imagegrid >}}
+*/}}
+
+<div class="image-group flex flex-wrap gap-4 my-4">
+  {{ .Inner | markdownify }}
+</div>

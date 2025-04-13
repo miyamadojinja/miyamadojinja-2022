@@ -1,0 +1,15 @@
+{{/*
+  Partial: prose-block.html
+
+  Wraps markdown content in a consistently styled div using Tailwind Typography plugin classes.
+
+  Usage:
+    {{ partial "prose-block.html" .Params.transportation }}
+*/}}
+
+<div class="prose max-w-none text-gray-800 text-sm md:text-base leading-relaxed
+            prose-img:mx-auto prose-img:rounded prose-img:shadow-md prose-img:max-w-full
+            prose-a:underline hover:prose-a:text-blue-600">
+  {{ . | markdownify }}
+</div>
+

@@ -1,0 +1,21 @@
+{{/*
+  Partial: page-title.html
+
+  Purpose:
+    Renders a unified page title section.
+    This is used across content types like single pages, taxonomy terms, sections, etc.
+
+  Usage:
+    {{ partial "page-title.html" . }}
+
+  Dependencies:
+    - Expects `.Title` in context.
+*/}}
+
+<section class="relative py-12 mb-12 border-t-2 border-red-600 bg-amber-50/70 backdrop-blur-sm shadow-sm">
+  <div class="container mx-auto px-4">
+    <h1 class="text-3xl sm:text-4xl font-bold leading-tight sm:leading-snug text-center text-red-800 tracking-wider mb-4">
+      {{ .Title }}
+    </h1>
+  </div>
+</section>

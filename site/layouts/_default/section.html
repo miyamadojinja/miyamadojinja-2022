@@ -1,34 +1,38 @@
 {{ define "main" }}
+  {{ partial "page-top-spacer.html" . }}
+  {{ partial "page-title.html" . }}
 
-<section class="hero hero--page-header">
-  <div class="hero-body">
-    <p class="title">{{.Title}}</p>
-  </div>
-</section>
-<main class="container my-5 px-4">
-  {{ if .Params.MainImage }}
-    <div class="mb-4">
-      {{ partial "progressive-image.html" (dict "context" . "src" .Params.MainImage "alt" .Title) }}
-    </div>
-  {{ end }}
-  <div class="content">{{ .Content }}</div>
-  <div>
-    {{ range .Paginator.Pages.ByPublishDate.Reverse }}
-    <a href="{{ .RelPermalink }}">
-      <article class="card mb-4">
-        <div class="card-content">
-          <div class="media">
-            <div class="media-content">
-              <p class="title is-4">{{ .Title }}</p>
-            </div>
-          </div>
-          <div class="content">{{ .Summary }}</div>
-        </div>
-      </article>
-    </a>
+  <main class="container px-4 mb-12">
+    {{ if .Params.MainImage }}
+      <div class="mb-6">
+        {{ partial "progressive-image.html" (dict "context" . "src" .Params.MainImage "alt" .Title) }}
+      </div>
     {{ end }}
-  </div>
-  {{- template "_internal/pagination.html" . -}}
-</main>
 
+    {{ if .Content }}
+      <div class="prose max-w-none mb-8">
+        {{ .Content }}
+      </div>
+    {{ end }}
+
+    <div class="space-y-6">
+      {{ range .Paginator.Pages.ByPublishDate.Reverse }}
+        <a href="{{ .RelPermalink }}">
+          <article class="bg-white p-6 rounded shadow hover:shadow-md transition-shadow">
+            <h2 class="text-lg font-semibold mb-1">
+              {{ .Title }}
+            </h2>
+            <div class="text-sm text-gray-600 mb-2">
+              {{ partial "date.html" .Date }}
+            </div>
+            <p class="text-gray-700">
+              {{ .Summary }}
+            </p>
+          </article>
+        </a>
+      {{ end }}
+    </div>
+
+    {{ template "_internal/pagination.html" . }}
+  </main>
 {{ end }}
