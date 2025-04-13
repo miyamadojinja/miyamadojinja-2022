@@ -1,78 +1,87 @@
 {{ define "main" }}
-{{ partial "page-top-spacer.html" . }}
+  {{ partial "page-top-spacer.html" . }}
 
-<header class="relative">
-  <div class="relative z-0">
-    {{ partial "progressive-image.html" (dict "context" . "src" .Params.MainImage "alt" .Title) }}
-  </div>
-  <div class="relative z-10 max-w-4xl mx-auto -mt-16 sm:-mt-20 px-6 sm:px-8 lg:px-12">
-    <div class="bg-gradient-to-b from-white/90 to-amber-50/60 backdrop-blur-sm border border-red-100 shadow-md rounded-lg p-6 sm:p-8 md:p-10">
-      {{ partial "prose-block.html" .Params.Introduction }}
+  <header class="relative">
+    <div class="relative z-0">
+      {{ partial "progressive-image.html" (dict "context" . "src" .Params.MainImage "alt" .Title) }}
     </div>
-  </div>
-</header>
-<main class="container mx-auto px-4">
-  <section class="my-12">
-    <img src="/img/miyamadosan.svg" class="mx-auto mb-8 w-64 sm:w-80 md:w-96 no-decoration" alt="みやまどさんのロゴ">
-    {{ partial "prose-block.html" .Content }}
-  </section>
-  <section class="my-12">
-    {{ partial "card-columns" .Params.Saijin }}
-  </section>
-  <section class="my-12">
-    {{ partial "card-columns" .Params.Features }}
-  </section>
-  {{ if .Params.News }}
-    <section class="my-20">
-      {{ partial "section-title.html" (dict "text" "お知らせ") }}
-      <div class="max-w-3xl mx-auto bg-gradient-to-b from-white/90 to-amber-50/60 backdrop-blur-sm border border-red-100 shadow-md rounded-lg p-6 sm:p-8 md:p-10">
-        {{ partial "prose-block.html" .Params.News }}
+    <div class="relative z-10 max-w-4xl mx-auto -mt-16 sm:-mt-20 px-6 sm:px-8 lg:px-12">
+      <div class="bg-gradient-to-b from-white/90 to-amber-50/60 backdrop-blur-sm border border-red-100 shadow-md rounded-lg p-6 sm:p-8 md:p-10">
+        {{ partial "prose-block.html" .Params.Introduction }}
+      </div>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4">
+    <section class="my-12">
+      <img src="/img/miyamadosan.svg" class="mx-auto mb-8 w-64 sm:w-80 md:w-96 no-decoration" alt="みやまどさんのロゴ">
+      {{ partial "prose-block.html" .Content }}
+    </section>
+
+    {{ if .Params.News }}
+      <section class="my-20">
+        {{ partial "section-title.html" (dict "text" "お知らせ") }}
+        <div class="max-w-3xl mx-auto bg-gradient-to-b from-white/90 to-amber-50/60 backdrop-blur-sm border border-red-100 shadow-md rounded-lg p-6 sm:p-8 md:p-10">
+          {{ partial "prose-block.html" .Params.News }}
+        </div>
+      </section>
+    {{ end }}
+
+    <section class="my-12">
+      {{ partial "card-columns" .Params.Saijin }}
+    </section>
+
+    <section class="my-12">
+      {{ partial "card-columns" .Params.Features }}
+    </section>
+
+    <section class="my-12">
+      {{ partial "section-title.html" (dict "text" "厄年") }}
+      {{ partial "yakudoshi-table.html" .Params.yakudoshi }}
+    </section>
+
+    <section class="my-12">
+      <div class="mb-6">
+        {{ partial "blog-table" . }}
+        {{ $blogPostCount := len (where .Site.RegularPages "Section" "!=" "") }}
+        {{ if gt 0 $blogPostCount }}
+          <div class="flex flex-wrap gap-2 text-sm mt-4">
+            <a href="/blog" class="inline-block bg-gray-200 px-3 py-1 rounded">
+              全記事<sub>{{ $blogPostCount }}</sub>
+            </a>
+            {{ partial "site-tags" . }}
+          </div>
+        {{ end }}
       </div>
     </section>
-  {{ end }}
-  <section class="my-12">
-    {{ partial "section-title.html" (dict "text" "厄年") }}
-    {{ partial "yakudoshi-table.html" .Params.yakudoshi }}
-  </section>
-  <section class="my-12">
-    <div class="mb-6">
-      {{ partial "blog-table" . }}
-      {{ $blogPostCount := len (where .Site.RegularPages "Section" "!=" "") }}
-      {{ if gt 0 $blogPostCount }}
-        <div class="flex flex-wrap gap-2 text-sm mt-4">
-          <a href="/blog" class="inline-block bg-gray-200 px-3 py-1 rounded">
-            全記事<sub>{{ $blogPostCount }}</sub>
-          </a>
-          {{ partial "site-tags" . }}
-        </div>
+
+    <section class="my-12">
+      {{ partial "section-title.html" (dict "text" "境内案内") }}
+      {{ if .Params.KeidaiImage }}
+        <img class="mb-6 mx-auto" src="{{ .Params.KeidaiImage }}" alt="境内画像">
       {{ end }}
-    </div>
-  </section>
-  <section class="my-12">
-    {{ partial "section-title.html" (dict "text" "境内案内") }}
-    {{ if .Params.KeidaiImage }}
-      <img class="mb-6 mx-auto" src="{{ .Params.KeidaiImage }}" alt="境内画像">
-    {{ end }}
-    {{ partial "keidai-list.html" .Params.keidaiSpots }}
-  </section>
-  <section class="my-12">
-    {{ partial "section-title.html" (dict "text" "交通のご案内") }}
-    <iframe class="w-full h-[450px] mb-6" src="{{ .Site.Params.officeMapIframeUrl }}" frameborder="0"></iframe>
-    <div class="max-w-3xl mx-auto bg-gradient-to-b from-white/90 to-amber-50/60 backdrop-blur-sm border border-red-100 shadow-md rounded-lg p-6 sm:p-8 md:p-10 mb-6">
-      {{ partial "prose-block.html" .Params.transportation }}
-    </div>
-  </section>
-  <!-- Netlify CMS Redirect Script -->
-  <script>
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("init", user => {
-        if (!user) {
-          window.netlifyIdentity.on("login", () => {
-            document.location.href = "/admin/";
-          });
-        }
-      });
-    }
-  </script>
-</main>
+      {{ partial "keidai-list.html" .Params.keidaiSpots }}
+    </section>
+
+    <section class="my-12">
+      {{ partial "section-title.html" (dict "text" "交通のご案内") }}
+      <iframe class="w-full h-[450px] mb-6" src="{{ .Site.Params.officeMapIframeUrl }}" frameborder="0"></iframe>
+      <div class="max-w-3xl mx-auto bg-gradient-to-b from-white/90 to-amber-50/60 backdrop-blur-sm border border-red-100 shadow-md rounded-lg p-6 sm:p-8 md:p-10 mb-6">
+        {{ partial "prose-block.html" .Params.transportation }}
+      </div>
+    </section>
+
+    <!-- Netlify CMS Redirect Script -->
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
+  </main>
 {{ end }}
