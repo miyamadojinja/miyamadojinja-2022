@@ -44,6 +44,7 @@
     ],
     "classes": [
       "-mt-16",
+      "-mt-8",
       "absolute",
       "aspect-[3/4]",
       "aspect-video",
@@ -154,6 +155,7 @@
       "shadow",
       "shadow-md",
       "shadow-sm",
+      "sm:-mt-12",
       "sm:-mt-20",
       "sm:grid-cols-2",
       "sm:leading-snug",
