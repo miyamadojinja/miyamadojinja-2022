@@ -1,8 +1,8 @@
 {{/*
   Layout: blog/section.html
 
-  - Blog archive index view
-  - Includes date, tag list, pagination
+  - Blog archive index view.
+  - Shows blog header image, tag list, intro text, paginated blog cards.
 */}}
 
 {{ define "main" }}
@@ -10,21 +10,23 @@
   {{ partial "page-title.html" . }}
 
   <main class="container mx-auto px-4 my-12">
-    {{ if .Params.MainImage }}
+    {{ with .Params.MainImage }}
       <div class="mb-6">
-        {{ partial "progressive-image.html" (dict "context" . "src" .Params.MainImage "alt" .Title) }}
+        {{ partial "progressive-image.html" (dict "context" $ "src" . "alt" $.Title) }}
       </div>
     {{ end }}
 
-    {{ if ne (len .Site.Taxonomies.tags) 0 }}
+    {{ if gt (len .Site.Taxonomies.tags) 0 }}
       <div class="flex flex-wrap gap-2 mb-6">
         {{ partial "site-tags" . }}
       </div>
     {{ end }}
 
-    <div class="prose max-w-none mb-10">
-      {{ .Content }}
-    </div>
+    {{ with .Content }}
+      <div class="prose max-w-none mb-10">
+        {{ . }}
+      </div>
+    {{ end }}
 
     <div class="space-y-6">
       {{ range .Paginator.Pages.ByPublishDate.Reverse }}

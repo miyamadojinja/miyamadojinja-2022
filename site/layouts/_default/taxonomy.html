@@ -1,28 +1,54 @@
 {{/*
   Layout: _default/taxonomy.html
 
-  - Renders tag or category listings
-  - Each item links to list of pages by term
-  - Term pages link to content pages
+  Purpose:
+    Renders individual taxonomy term pages (e.g., tag pages like /tags/foo/).
+    Lists all pages associated with a given term, sorted by publish date.
+
+  Usage:
+    Automatically used for any taxonomy term, such as tags or categories.
 */}}
 
 {{ define "main" }}
+  {{ partial "page-top-spacer.html" . }}
   {{ partial "page-title.html" . }}
 
   <main class="container mx-auto px-4 my-12">
     <div class="prose max-w-none mb-10">
       {{ .Content }}
     </div>
-    <ul class="space-y-4">
-      {{ range .Pages }}
-        <li>
-          <a href="{{ .Permalink }}" class="block bg-white p-6 shadow rounded hover:shadow-md transition-shadow">
-            <h2 class="text-lg font-semibold">
-              {{ .Title }}
-            </h2>
-          </a>
-        </li>
-      {{ end }}
-    </ul>
+
+    {{ if .Pages }}
+      <ul class="space-y-6">
+        {{ range .Pages.ByPublishDate.Reverse }}
+          <li>
+            <a href="{{ .Permalink }}" class="block bg-white p-6 rounded shadow hover:shadow-md transition-shadow">
+              <h2 class="text-xl font-semibold mb-1 text-gray-800 hover:text-blue-700">
+                {{ .Title }}
+              </h2>
+              <div class="text-sm text-gray-600 mb-2">
+                {{ partial "date.html" .Date }}
+              </div>
+              {{ with .Params.tags }}
+                <div class="flex flex-wrap gap-2 text-xs">
+                  {{ range . }}
+                    <span class="bg-gray-200 px-2 py-1 rounded">{{ . }}</span>
+                  {{ end }}
+                </div>
+              {{ end }}
+            </a>
+          </li>
+        {{ end }}
+      </ul>
+    {{ else }}
+      <p class="text-gray-600 text-sm">このタグに関連する記事はまだありません。</p>
+    {{ end }}
+
+    <div class="mt-12 text-center">
+      <a href="/blog" class="text-blue-600 underline hover:text-blue-800">
+        ブログ一覧に戻る
+      </a>
+    </div>
   </main>
 {{ end }}
+

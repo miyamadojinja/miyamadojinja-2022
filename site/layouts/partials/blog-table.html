@@ -18,7 +18,7 @@
         <time datetime="{{ . }}">{{ dateFormat "2006/01/02" .Date }}</time>
       </td>
       <td class="align-top">
-        <a href="{{ .RelPermalink }}" class="text-blue-700 hover:underline">
+        <a href="{{ .RelPermalink }}">
           <span class="font-medium">{{ .Title }}</span>
         </a>
         {{ if ne .Params.tags nil }}

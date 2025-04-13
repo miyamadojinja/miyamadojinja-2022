@@ -7,13 +7,9 @@
 */}}
 
 {{ define "main" }}
-  <section class="bg-gray-100 py-12">
-    <div class="container mx-auto px-4">
-      <h1 class="text-3xl font-bold">
-        {{ .Title }}
-      </h1>
-    </div>
-  </section>
+  {{ partial "page-top-spacer.html" . }}
+  {{ partial "page-title.html" . }}
+
   <main class="container mx-auto px-4 my-12">
     <div class="prose max-w-none mb-10">
       {{ .Content }}

@@ -1,17 +1,25 @@
 {{/*
+  Partial: page-tags.html
   Renders page tags as clickable links.
-  Usage:
-    {{ partial "page-tags.html" . }}
-
-  Note:
-    Links to tag taxonomy pages, e.g., /tags/shrine/
+  Can accept either:
+    - A full Page context (with .Params.tags)
+    - A raw slice of strings ([]string)
 */}}
 
-{{ range $name := .Params.Tags }}
-{{ with $.Site.GetPage (printf "/tags/%s" $name) }}
-<a href="{{ .RelPermalink }}"
+{{ $tags := slice }}
+
+{{ if reflect.IsSlice . }}
+  {{ $tags = . }}
+{{ else if .Params.tags }}
+  {{ $tags = .Params.tags }}
+{{ end }}
+
+{{ range $name := $tags }}
+  {{ with site.GetPage (printf "/tags/%s" (urlize $name)) }}
+    <a href="{{ .RelPermalink }}"
        class="inline-block bg-gray-200 px-2 py-1 rounded text-sm hover:bg-gray-300 transition">
-  {{ $name }}
-</a>
+      {{ $name }}
+    </a>
+  {{ end }}
 {{ end }}
-{{ end }}
+

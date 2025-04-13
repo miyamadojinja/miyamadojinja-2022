@@ -2,17 +2,14 @@
   Partial: page-title.html
 
   Purpose:
-    Renders a unified page title section with optional metadata (e.g. date, tags).
-    This partial is used to keep the look and feel of headers consistent across
-    content types such as blog posts, taxonomy pages, section lists, etc.
+    Renders a unified page title section.
+    This is used across content types like single pages, taxonomy terms, sections, etc.
 
   Usage:
     {{ partial "page-title.html" . }}
 
   Dependencies:
-    - Expects `.Title` to be present in context
-    - Optionally reads `.Params.Date` and `.Params.Tags`
-    - Uses `partials/date.html` and `partials/page-tags.html`
+    - Expects `.Title` in context.
 */}}
 
 <section class="relative py-12 mb-12 border-t-2 border-red-600 bg-amber-50/70 backdrop-blur-sm shadow-sm">
@@ -20,15 +17,5 @@
     <h1 class="text-3xl sm:text-4xl font-bold leading-tight sm:leading-snug text-center text-red-800 tracking-wider mb-4">
       {{ .Title }}
     </h1>
-    {{ with .Params.Date }}
-      <p class="text-sm text-center text-gray-500 mt-2 mb-2">
-        {{ partial "date.html" . }}
-      </p>
-    {{ end }}
-    {{ with .Params.Tags }}
-      <div class="mt-6 flex justify-center flex-wrap gap-2">
-        {{ partial "page-tags.html" . }}
-      </div>
-    {{ end }}
   </div>
 </section>
