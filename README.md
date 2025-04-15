@@ -7,15 +7,65 @@
   <p>Miyamado Jinja is a Shinto Shrine located in Yokkaichi, Mie, Japan.</p>
 </div>
 
-## 🛠 Requirements
+---
 
-- [Hugo Extended](https://gohugo.io/) (regular Hugo is not sufficient)
+## Requirements
+
+- [Hugo Extended](https://gohugo.io/getting-started/installing/) (`hugo version` should include `extended`)
 - [Node.js](https://nodejs.org/)
 - [npm](https://www.npmjs.com/)
 
-## 🚀 Quick start
+## Setup
+
+Install Node.js dependencies (e.g., TailwindCSS and Decap CMS proxy server):
 
 ```bash
-bin/setup
-bin/server
+./scripts/setup.sh
 ```
+
+## Development
+
+To start the full local development environment:
+
+```bash
+./scripts/dev.sh
+```
+
+This will:
+
+- Run Hugo dev server at `http://localhost:1313`
+- Run Decap CMS local proxy at `http://localhost:8081`
+- Open both the public site and `/admin` interface in your browser
+
+If you only want to run the site:
+
+```bash
+./scripts/serve-site.sh
+```
+
+If you only want to run the CMS backend:
+
+```bash
+./scripts/serve-admin.sh
+```
+
+You can also open them manually:
+
+```bash
+./scripts/open-site.sh
+./scripts/open-admin.sh
+```
+
+## File Structure
+
+```bash
+scripts/                 # Local dev scripts (setup, dev, server)
+site/                    # Hugo site root
+site/static/admin/       # Decap CMS config and entrypoint
+```
+
+## Content Management
+
+This project uses [Decap CMS](https://decapcms.org/) for managing site content.
+
+The CMS is loaded via CDN in `/admin/index.html`, and configured via `/admin/config.yml`.

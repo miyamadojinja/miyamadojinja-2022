@@ -49,7 +49,7 @@ collections:
             name: 'news'
             widget: 'text'
             required: false
-          - label: 'イントロ'
+          - label: '序文'
             name: 'introduction'
             widget: 'text'
           - label: '本文'
@@ -71,21 +71,42 @@ collections:
               - { label: '説明', name: 'description', widget: 'text', required: false }
               - { label: '写真', name: 'image', widget: 'image', required: false }
               - { label: 'リンクURL', name: 'linkUrl', widget: 'string', required: false }
+          - label: '厄年表'
+            name: 'yakudoshi'
+            widget: 'object'
+            fields:
+              - label: '説明文'
+                name: 'caption'
+                widget: 'text'
+              - label: '男性'
+                name: 'men'
+                widget: 'list'
+                field:
+                  label: '年齢区分'
+                  name: 'row'
+                  widget: 'list'
+                  field: { label: '値', name: 'value', widget: 'string' }
+              - label: '女性'
+                name: 'women'
+                widget: 'list'
+                field:
+                  label: '年齢区分'
+                  name: 'row'
+                  widget: 'list'
+                  field: { label: '値', name: 'value', widget: 'string' }
           - label: '境内写真'
             name: 'keidaiImage'
             widget: 'image'
             required: false
-          - label: '境内説明'
-            name: 'keidaiDescription'
+          - label: '境内の見どころ'
+            name: 'keidaiSpots'
+            widget: list
+            fields:
+              - { label: '番号', name: 'number', widget: 'number' }
+              - { label: '名称', name: 'name', widget: 'string' }
+          - label: '交通案内'
+            name: 'transportation'
             widget: 'text'
-          - label: 'アクセス1'
-            name: 'access1'
-            widget: 'text'
-            required: false
-          - label: 'アクセス2'
-            name: 'access2'
-            widget: 'text'
-            required: false
       - file: 'site/content/events.md'
         label: '年間行事'
         name: 'events'
@@ -163,28 +184,6 @@ collections:
           - label: '本文'
             name: 'body'
             widget: 'text'
-      - file: 'site/content/tsuitachimairi.md'
-        label: '朔日参り'
-        name: 'tsuitachimairi'
-        fields:
-          - label: '写真'
-            name: 'mainImage'
-            widget: 'image'
-            required: false
-          - label: '本文'
-            name: 'body'
-            widget: 'text'
-      - file: 'site/content/yakudoshi.md'
-        label: '厄年'
-        name: 'yakudoshi'
-        fields:
-          - label: '写真'
-            name: 'mainImage'
-            widget: 'image'
-            required: false
-          - label: '本文'
-            name: 'body'
-            widget: 'text'
       - file: 'site/content/yomeiri.md'
         label: '狐の嫁入り神事'
         name: 'yomeiri'
@@ -203,7 +202,7 @@ collections:
     slug: '{{year}}-{{month}}-{{day}}-{{hour}}{{minute}}' # E.g. "2020-01-01-1234"
     editor: { preview: false }
     fields:
-      - label: 公開
+      - label: 下書き（未公開）
         name: 'draft'
         widget: 'boolean'
         default: true
