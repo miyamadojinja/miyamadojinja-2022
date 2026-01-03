@@ -156,6 +156,7 @@
       "shadow-sm",
       "sm:-mt-12",
       "sm:grid-cols-2",
+      "sm:inline",
       "sm:leading-snug",
       "sm:p-8",
       "sm:px-8",
