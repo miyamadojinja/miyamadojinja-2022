@@ -17,6 +17,8 @@ params:
   instagramUrl: https://www.instagram.com/miyamado_shrine
   description: |
     開運・厄除け・結び・合格の神様
+  sourceCodeUrl: "https://github.com/miyamadojinja/miyamadojinja-website"
+  sourceCodeLabel: "このサイトのソースコード"
   # Specify sections to pull recent posts from.
   mainSections:
     - blog

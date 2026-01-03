@@ -39,6 +39,20 @@
     </a>
   </div>
 
+  <!-- Source Code -->
+  {{ with .Site.Params.sourceCodeUrl }}
+    <div class="pb-3 text-center text-gray-500 text-xs">
+      <a
+        href="{{ . }}"
+        class="underline hover:text-red-600"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        {{ $.Site.Params.sourceCodeLabel | default "このサイトのソースコード" }}
+      </a>
+    </div>
+  {{ end }}
+
   <!-- Copyright -->
   <div class="pb-8 text-center text-gray-400 text-xs">
     &copy; {{ with .Site.Copyright | default .Site.Title }}{{ . | safeHTML }} {{ now.Format "2006" }}{{ end }}
